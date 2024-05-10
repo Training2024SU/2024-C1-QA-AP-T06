@@ -13,3 +13,11 @@ Feature:
     Examples:
       | nombre  | apellido   | correo              | edad | salario | departamento | correoActualizar     | correoEliminar      |
       | "jorge" | "de neiva" | "jorge@example.com" | 35   | 2000    | "CALIDAD"    | "cierra@example.com" | "alden@example.com" |
+
+
+    @nuevaPestaña
+    Scenario: abrir link nueva pestaña
+      Given el usuario esta en el apartado links de Elementos
+      When el usuario hace clic en los enlaces Home y HomewXVOz
+      Then se deberian redirigir al home de DemoQA correctamente
+
