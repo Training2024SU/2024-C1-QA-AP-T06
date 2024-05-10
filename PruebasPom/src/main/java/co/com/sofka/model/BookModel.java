@@ -1,5 +1,7 @@
 package co.com.sofka.model;
 
+import java.util.Objects;
+
 public class BookModel {
     private String isbn;
     private String title;
@@ -48,4 +50,26 @@ public class BookModel {
         this.author = author;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BookModel bookModel = (BookModel) o;
+        return Objects.equals(isbn, bookModel.isbn) && Objects.equals(title, bookModel.title) && Objects.equals(subTitle, bookModel.subTitle) && Objects.equals(author, bookModel.author);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(isbn, title, subTitle, author);
+    }
+
+    @Override
+    public String toString() {
+        return "BookModel{" +
+                "isbn='" + isbn + '\'' +
+                ", title='" + title + '\'' +
+                ", subTitle='" + subTitle + '\'' +
+                ", author='" + author + '\'' +
+                '}';
+    }
 }
