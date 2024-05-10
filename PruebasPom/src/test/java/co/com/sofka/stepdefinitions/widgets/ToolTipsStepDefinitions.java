@@ -5,23 +5,42 @@ import co.com.sofka.setup.WebSetup;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 public class ToolTipsStepDefinitions extends WebSetup {
     PageFactoryToolTips pageFactoryToolTips;
 
     @When("se dirije a la pagina toolTips")
     public void seDirijeALaPaginaToolTips() {
-        pageFactoryToolTips = new PageFactoryToolTips(driver);
-        pageFactoryToolTips.irPaginaToolTisp();
+        try {
+            pageFactoryToolTips = new PageFactoryToolTips(driver);
+            pageFactoryToolTips.irPaginaToolTisp();
+        }catch (Exception e){
+            System.err.println(e.getMessage());
+            quiteDrive();
+            Assertions.fail();
+        }
     }
     @When("ingresa el texto {string} en el campo de texto")
     public void ingresaElTextoEnElCampoDeTexto(String text) {
-        pageFactoryToolTips = new PageFactoryToolTips(driver);
-        pageFactoryToolTips.ingresarTexto(text);
+        try {
+            pageFactoryToolTips = new PageFactoryToolTips(driver);
+            pageFactoryToolTips.ingresarTexto(text);
+        }catch (Exception e){
+            System.err.println(e.getMessage());
+            quiteDrive();
+            Assertions.fail();
+        }
     }
     @Then("deberia ver el texto ingresado en el campo")
     public void deberiaVerElTextoIngresadoEnElCampo() {
-        pageFactoryToolTips = new PageFactoryToolTips(driver);
-        Assert.assertTrue(pageFactoryToolTips.contieneTexto().isEmpty());
+        try {
+            pageFactoryToolTips = new PageFactoryToolTips(driver);
+            Assert.assertTrue(pageFactoryToolTips.contieneTexto().isEmpty());
+        }catch (Exception e){
+            System.err.println(e.getMessage());
+            quiteDrive();
+            Assertions.fail();
+        }
     }
 }
