@@ -9,7 +9,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
 
-import static co.com.sofka.Constantes.VALORACCORDIAN;
+import static co.com.sofka.Constantes.VALOR_ACCORDIAN;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -43,7 +43,7 @@ public class AccordianStepDefinition extends WebSetup {
     @Then("deberia moverse automaticamente")
     public void deberiaMoverseAutomaticamente() {
         try {
-            assertThat(reactionWidgets.validarAccordian(),containsString("It is a long"));
+            assertThat(reactionWidgets.validarAccordian(),containsString(VALOR_ACCORDIAN));
             Assertions.assertTrue(reactionWidgets.estadDesplegado(2));
             System.err.println("Asercion Acordian");
         } catch (Exception e) {

@@ -42,6 +42,7 @@ public class ReactionWidgets extends FunctionsCommons {
     public String validarAccordian(){
         return getText(mensajeAccordian);
     }
+    
     public boolean estadDesplegado(int indice){
         WebElement carta = cartas.get(indice);
         WebElement contenido = carta.findElement(By.xpath("./following-sibling::div"));
