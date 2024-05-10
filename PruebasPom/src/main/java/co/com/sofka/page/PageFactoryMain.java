@@ -14,15 +14,15 @@ public class PageFactoryMain extends FunctionsCommons {
     private WebElement forms;
 
     @CacheLookup
-    @FindBy(xpath = "//h5[contains(text(), 'Interactions')]/ancestor::div[@class = 'card mt-4 top-card']")
+    @FindBy(xpath = "//h5[contains(text(), 'Interactions')]")
     private WebElement interacciones;
 
     @CacheLookup
-    @FindBy(xpath = "//h5[contains(text(), 'Alerts')]/ancestor::div[@class = 'card mt-4 top-card']")
+    @FindBy(xpath = "//h5[contains(text(), 'Alerts')]")
     private WebElement alertas;
 
     @CacheLookup
-    @FindBy(xpath = "//h5[contains(text(), 'Widgets')]/ancestor::div[@class = 'card mt-4 top-card']")
+    @FindBy(xpath = "//h5[contains(text(), 'Widgets')]")
     private WebElement widgets;
 
     @CacheLookup
@@ -40,10 +40,12 @@ public class PageFactoryMain extends FunctionsCommons {
     }
 
     public void navegarAForms() {
+        scrollTo(forms);
         clickSelection(forms);
     }
 
     public void navegarAInteracciones() {
+        scrollTo(interacciones);
         clickSelection(interacciones);
     }
 
@@ -53,11 +55,14 @@ public class PageFactoryMain extends FunctionsCommons {
     }
 
     public void navegarAWidgets() {
+        scrollTo(widgets);
         clickSelection(widgets);
     }
 
     public void navegarAElements() {
+        scrollTo(elementos);
         clickSelection(elementos);
+
     }
 
     public void navegarBookStoreApplication(){

@@ -2,6 +2,7 @@ package co.com.sofka.page;
 
 import co.com.sofka.model.WebTableModel;
 import co.com.sofka.page.function.FunctionsCommons;
+
 import net.datafaker.Faker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
