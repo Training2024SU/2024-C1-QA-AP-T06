@@ -32,7 +32,6 @@ public class WebSetup {
         maximize();
     }
 
-
     private void edgeConfiguration() {
         EdgeOptions edgeOptions = new EdgeOptions();
         edgeOptions.setCapability("ms:inPrivate", true);
@@ -40,7 +39,6 @@ public class WebSetup {
         edgeOptions.setCapability("ms:edgeOptions", "--headless");
         driver = new EdgeDriver(edgeOptions);
     }
-
 
     protected void generalSetup(int tipoDriver) {
         setupWebDriverUrl(tipoDriver);

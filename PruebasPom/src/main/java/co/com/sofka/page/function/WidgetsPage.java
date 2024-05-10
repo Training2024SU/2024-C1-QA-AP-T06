@@ -8,6 +8,10 @@ import org.openqa.selenium.support.PageFactory;
 public class WidgetsPage extends FunctionsCommons {
     @FindBy(xpath = "//span[text()='Date Picker']/..")
     WebElement datePickerLI;
+    @FindBy(xpath = "//span[text()='Accordian']/..")
+    WebElement accordian;
+    @FindBy(xpath = "//span[text()='Auto Complete']/..")
+    WebElement autoComplete;
 
     public WidgetsPage(WebDriver driver) {
         super(driver);
@@ -18,4 +22,15 @@ public class WidgetsPage extends FunctionsCommons {
         scrollTo(datePickerLI);
         clickSelection(datePickerLI);
     }
+
+    public void navegarAccordian() {
+        scrollTo(accordian);
+        clickSelection(accordian);
+    }
+
+    public void navegarAutoComplete() {
+        scrollTo(autoComplete);
+        clickSelection(autoComplete);
+    }
+
 }

@@ -16,7 +16,6 @@ public class DatePickerPage {
     private final WebDriver driver;
     private final By datePopupLocator = By.cssSelector(".react-datepicker-popper");
 
-
     @FindBy(id = "datePickerMonthYearInput")
     private WebElement dateInput;
 

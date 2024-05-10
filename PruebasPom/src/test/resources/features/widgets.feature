@@ -3,19 +3,25 @@ Feature: prueba de los Widgets
   quiero poder utilizar los widgets
   para disfrutar todos sus beneficios
 
-
   Background:
     Given El usuario esta en la pagina web de widgets demoqa 1
 
+  @accordian @widgets
   Scenario: prueba de Accordian
     Given el usuario se dirige a la página widget Accordian
     When quiere utilizar el Accordian
     Then deberia moverse automaticamente
 
+  @autocomplete @widgets
   Scenario: prueba de Auto complete
     Given el usuario se dirige a la página widget Auto complete
     When quiere utilizar el auto complete
     Then deberia completarse automaticamente
+
+  @tabs
+  Scenario: interaccion con tabs
+    When se dirije a la pagina tabs
+    Then deberia poder interactuar con los elementos de la pagina
 
   @Fechas
   Scenario Outline: Seleccionar fecha
