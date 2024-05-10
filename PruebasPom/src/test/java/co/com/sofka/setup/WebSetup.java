@@ -12,7 +12,6 @@ import static co.com.sofka.Constantes.OPCION_VALIDA;
 public class WebSetup {
     protected static WebDriver driver;
 
-
     private void setupWebDriverUrl(int driverSelect) {
         switch (driverSelect) {
             case 1:
@@ -26,7 +25,6 @@ public class WebSetup {
                 break;
             default:
                 System.out.println(OPCION_VALIDA);
-
         }
         driver.get(DEMO_QA_URL);
         maximize();
