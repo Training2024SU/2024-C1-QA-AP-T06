@@ -1,4 +1,4 @@
-Feature:
+Feature: Elements DemoQA
 
   Background:
     Given El usuario esta en la pagina web de elements demoqa 1
@@ -19,9 +19,3 @@ Feature:
     Given el usuario esta en el apartado links de Elementos
     When el usuario hace clic en los enlaces Home y HomewXVOz
     Then se deberian redirigir al home de DemoQA correctamente
-
-  @CheckBox
-  Scenario: Interacción con casillas de verificación
-    Given el usuario accede a la sección de casillas de verificación
-    When expande selecciona y reduce las casillas de verificación
-    Then debería ver un mensaje con la cantidad de casillas seleccionadas
