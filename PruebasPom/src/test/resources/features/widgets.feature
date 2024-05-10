@@ -39,3 +39,9 @@ Feature:
     Examples:
       | texto                     |
       | El texto esta en el campo |
+
+  @selectMenu
+  Scenario: llenar formulario select menu
+    When se dirije a la pagina select menu
+    And completa todos los campos
+    Then deberia poder ver toda la infomacion ingresada
