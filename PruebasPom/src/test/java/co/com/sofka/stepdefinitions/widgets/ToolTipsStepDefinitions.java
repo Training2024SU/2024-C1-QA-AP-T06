@@ -36,7 +36,7 @@ public class ToolTipsStepDefinitions extends WebSetup {
     public void deberiaVerElTextoIngresadoEnElCampo() {
         try {
             pageFactoryToolTips = new PageFactoryToolTips(driver);
-            Assert.assertTrue(pageFactoryToolTips.contieneTexto().isEmpty());
+            Assert.assertFalse(pageFactoryToolTips.contieneTexto().isEmpty());
         }catch (Exception e){
             System.err.println(e.getMessage());
             quiteDrive();
