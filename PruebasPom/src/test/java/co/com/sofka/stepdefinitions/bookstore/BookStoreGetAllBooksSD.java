@@ -9,7 +9,7 @@ import io.cucumber.java.en.When;
 import java.util.List;
 import java.util.Map;
 
-import static co.com.sofka.stepdefinitions.bookstore.ConstantesBookStoreService.GET_ALL_BOOKS;
+import static co.com.sofka.stepdefinitions.bookstore.ConstantesBookStoreService.GET_ALL_BOOKS_URL;
 import static co.com.sofka.util.mapToModel.mapToBooksList;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -19,7 +19,7 @@ public class BookStoreGetAllBooksSD extends ServiceSetup {
     public void realizaLaPeticionGETCorrectamenteParaObtenerTodosLosLibros() {
         response = given()
                 .when()
-                .get(GET_ALL_BOOKS);
+                .get(GET_ALL_BOOKS_URL);
     }
 
     @Then("deberia ver los siguentes libros ofrecidos en la pagina")

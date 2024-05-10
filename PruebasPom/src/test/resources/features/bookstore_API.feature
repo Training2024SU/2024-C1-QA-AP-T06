@@ -29,17 +29,33 @@ Feature: Books Store
       | 9781449331818 | Learning JavaScript Design Patterns       |
       | 9781449337711 | Designing Evolvable Web APIs with ASP.NET |
 
+  # ingresar usuarios que no existen
+  # ya que quedan guardados en la base de datos
 
-    #usar usuarios que no existen
   @servicio
   Scenario Outline: Crear usuario utilizando servicio POST de DemoQA
     When realiza la peticion POST correctamente ingresando el usuario "<user>" y la contrasena "<contrasena>"
     Then deberia ver informacion al usuario creado
     And deberia recibir una respuesta exitosa con codigo 201
     Examples:
-      | user               | contrasena        |
-      | johan0111 Cifuentes  | johan123$$ABC     |
-      | jorge0111 rodriguez  | jorge123$$ABC     |
-      | Pacho0111 valenzuela | pacho123$$ABCCool |
+      | user             | contrasena        |
+      | johan Cifuentes  | johan123$$ABC     |
+      | jorge Rodriguez  | jorge123$$ABC     |
+      | Pacho Valenzuela | pacho123$$ABCCool |
+
+
+  @servicio
+  Scenario Outline: Generar token de ingreso usando metodo POST con cuenta registrada
+    When crea un usuario realizando una peticion el servicio POST con el usuario "<user>" y la contrasena "<contrasena>"
+    When solicita un token ingresando las credenciales del usuario creado usando el metodo POST
+    Then deberia generar un token de ingreso
+    And deberia ser autorizado para entrar
+    Examples:
+      | user          | contrasena        |
+      | Juan Jose     | juan123$$ABC      |
+      | David Bonelo  | david123$$ABC     |
+      | Julio Vasquez | julio123$$ABCCool |
+
+
 
 

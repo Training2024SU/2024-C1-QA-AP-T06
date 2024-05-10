@@ -4,9 +4,6 @@ public class UserRegisterModel {
     private String userName;
     private String password;
 
-    public UserRegisterModel() {
-    }
-
     public UserRegisterModel(String userName, String password) {
         this.userName = userName;
         this.password = password;

@@ -5,7 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 
-import static co.com.sofka.stepdefinitions.bookstore.ConstantesBookStoreService.GET_BOOK;
+import static co.com.sofka.stepdefinitions.bookstore.ConstantesBookStoreService.GET_BOOK_URL;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
@@ -16,7 +16,7 @@ public class BookStoreGetBookSD extends ServiceSetup {
         response = given()
                 .when()
                 .pathParam("isbn", isbn)
-                .get(GET_BOOK);
+                .get(GET_BOOK_URL);
     }
     @Then("deberia ver el titulo {string}")
     public void deberiaVerElTitulo(String titulo) {
