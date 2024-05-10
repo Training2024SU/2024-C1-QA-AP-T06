@@ -1,6 +1,8 @@
 package co.com.sofka.stepdefinitions.widgets;
 
 import co.com.sofka.page.DatePickerPage;
+import co.com.sofka.page.PageFactoryMain;
+
 import co.com.sofka.page.WidgetsPage;
 import co.com.sofka.setup.WebSetup;
 import io.cucumber.java.en.Given;
@@ -13,6 +15,16 @@ import java.time.LocalDateTime;
 
 public class DateTimePickersSteps extends WebSetup {
     private DatePickerPage datePickerPage;
+
+    /*
+    @Given("El usuario esta en la pagina web de widgets demoqa {int}")
+    public void elUsuarioEstaEnLaPaginaWebDeWidgetsDemoqa(int browser) {
+        generalSetup(browser);
+        PageFactoryMain pageFactoryMain = new PageFactoryMain(driver);
+        pageFactoryMain.navegarAWidgets();
+    }
+
+     */
 
     @Given("El usuario accede a los widgets de fecha y hora")
     public void elUsuarioAccedeALosWidgetsDeFechaYHora() {

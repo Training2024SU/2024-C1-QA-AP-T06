@@ -6,13 +6,13 @@ Feature: prueba de los Widgets
   Background:
     Given El usuario esta en la pagina web de widgets demoqa 1
 
-  @accordian @widget
+  @accordian
   Scenario: prueba de Accordian
     Given el usuario se dirige a la página widget Accordian
     When quiere utilizar el Accordian
     Then deberia moverse automaticamente
 
-  @autocomplete @widgets
+  @autocomplete
   Scenario: prueba de Auto complete
     Given el usuario se dirige a la página widget Auto complete
     When quiere utilizar el auto complete "Aq" "bla"
@@ -45,3 +45,11 @@ Feature: prueba de los Widgets
       | 2035-09-15T15:45 | September 15, 2035 3:45 PM |
       | 2015-11-20T09:00 | November 20, 2015 9:00 AM  |
 
+  @tool
+  Scenario Outline: interaccion con elementos tool Tips
+    When se dirije a la pagina toolTips
+    And ingresa el texto "<texto>" en el campo de texto
+    Then deberia ver el texto ingresado en el campo
+    Examples:
+      | texto                     |
+      | El texto esta en el campo |
