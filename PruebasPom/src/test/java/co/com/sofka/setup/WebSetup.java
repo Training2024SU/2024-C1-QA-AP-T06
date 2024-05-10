@@ -29,7 +29,7 @@ public class WebSetup {
 
         }
         driver.get(DEMO_QA_URL);
-        maximize();
+//        maximize();
     }
 
     private void edgeConfiguration() {
