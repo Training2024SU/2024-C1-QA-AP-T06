@@ -6,12 +6,11 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/resources/features",
+        features = "src/test/resources/features/alertas.feature",
         glue = "co.com.sofka.stepdefinitions",
-        snippets = CucumberOptions.SnippetType.CAMELCASE,
-        publish = true,
-        tags = "@webtables"
-
+        snippets = CucumberOptions.SnippetType.CAMELCASE
+//        tags = "@test1",
+        //publish = true
 )
-public class FormularioTest {
+public class AlertasTest {
 }

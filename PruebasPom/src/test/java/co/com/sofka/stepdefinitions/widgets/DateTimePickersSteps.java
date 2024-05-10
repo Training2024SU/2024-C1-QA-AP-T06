@@ -2,7 +2,6 @@ package co.com.sofka.stepdefinitions.widgets;
 
 import co.com.sofka.page.DatePickerPage;
 import co.com.sofka.page.PageFactoryMain;
-import co.com.sofka.page.function.FunctionsCommons;
 import co.com.sofka.page.function.WidgetsPage;
 import co.com.sofka.setup.WebSetup;
 import io.cucumber.java.en.Given;
