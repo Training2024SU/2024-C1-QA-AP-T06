@@ -7,7 +7,7 @@ import io.cucumber.java.en.When;
 public class RadioBotonStepDefinitions {
 
     @Given("el usuario accede a la sección de botones de radio")
-    public void elUsuarioAccedeALaSecciónDeBotonesDeRadio() {
+    public void elUsuarioAccedeALaSeccionDeBotonesDeRadio() {
 
     }
     @When("selecciona las opciones de radio")

@@ -7,11 +7,11 @@ import io.cucumber.java.en.When;
 public class CheckBoxStepDefinitions {
 
     @Given("el usuario accede a la sección de casillas de verificación")
-    public void elUsuarioAccedeALaSecciónDeCasillasDeVerificación() {
+    public void elUsuarioAccedeALaSeccionDeCasillasDeVerificacion() {
 
     }
     @When("expande selecciona y reduce las casillas de verificación")
-    public void expandeSeleccionaYReduceLasCasillasDeVerificación() {
+    public void expandeSeleccionaYReduceLasCasillasDeVerificacion() {
 
     }
     @Then("debería ver un mensaje con la cantidad de casillas seleccionadas")
