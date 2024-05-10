@@ -48,6 +48,7 @@ public class PageFactoryMain extends FunctionsCommons {
     }
 
     public void navegarAWidgets() {
+        scrollTo(widgets);
         clickSelection(widgets);
     }
 
