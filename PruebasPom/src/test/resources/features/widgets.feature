@@ -1,7 +1,13 @@
 Feature:
 
+
   Background:
     Given El usuario esta en la pagina web de widgets demoqa 1
+
+    @tabs
+    Scenario: interaccion con tabs
+      When se dirije a la pagina tabs
+      Then deberia poder interactuar con los elementos de la pagina
 
   @Fechas
   Scenario Outline: Seleccionar fecha
@@ -24,3 +30,4 @@ Feature:
       | 2024-04-30T12:30 | April 30, 2024 12:30 PM    |
       | 2035-09-15T15:45 | September 15, 2035 3:45 PM |
       | 2015-11-20T09:00 | November 20, 2015 9:00 AM  |
+
