@@ -40,11 +40,6 @@ public class FunctionsCommons {
         element.sendKeys(text);
     }
 
-    protected void scrollTo(By locator) {
-        JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript("arguments[0].scrollIntoView();", driver.findElement(locator));
-    }
-
     protected void cleanField(WebElement element) {
         element.clear();
     }
@@ -89,5 +84,11 @@ public class FunctionsCommons {
     protected void waitToBeVisible(WebElement webElement) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(webElement));
+    }
+    public void switchToIframe(WebElement locator){
+        driver.switchTo().frame(locator);
+    }
+    public void switchToPagina(WebElement locator){
+        driver.switchTo().defaultContent();
     }
 }
