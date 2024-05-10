@@ -1,5 +1,6 @@
-Feature: Books Store
+# Johan Cifuentes
 
+Feature: Books Store
   Como usuario de la página de DemoQA,
   Quiero acceder a la librería
   Para utilizar sus servicios y explorar los libros disponibles.
@@ -38,10 +39,10 @@ Feature: Books Store
     Then deberia ver informacion al usuario creado
     And deberia recibir una respuesta exitosa con codigo 201
     Examples:
-      | user             | contrasena        |
-      | johan Cifuentes  | johan123$$ABC     |
-      | jorge Rodriguez  | jorge123$$ABC     |
-      | Pacho Valenzuela | pacho123$$ABCCool |
+      | user                | contrasena        |
+      | johan CifuentesAPI  | johan123$$ABC     |
+      | jorge RodriguezAPI  | jorge123$$ABC     |
+      | Pacho ValenzuelaAPI | pacho123$$ABCCool |
 
 
   @servicio
@@ -50,11 +51,12 @@ Feature: Books Store
     When solicita un token ingresando las credenciales del usuario creado usando el metodo POST
     Then deberia generar un token de ingreso
     And deberia ser autorizado para entrar
+    And deberia recibir una respuesta exitosa con codigo 200
     Examples:
-      | user          | contrasena        |
-      | Juan Jose     | juan123$$ABC      |
-      | David Bonelo  | david123$$ABC     |
-      | Julio Vasquez | julio123$$ABCCool |
+      | user             | contrasena         |
+      | Juan JoseAPI     | juan1111$$ABC      |
+      | David BoneloAPI  | david2222$$ABC     |
+      | Julio VasquezAPI | julio3333$$ABCCool |
 
 
 
