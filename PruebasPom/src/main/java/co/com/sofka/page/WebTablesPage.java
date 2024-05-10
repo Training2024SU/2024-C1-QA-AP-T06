@@ -120,10 +120,15 @@ public class WebTablesPage extends FunctionsCommons {
         refrescarLocalizadoresFormulario();
         Faker faker = new Faker();
 
+        limpiarCampo(CAMPO_NOMBRE);
         typeInto(CAMPO_NOMBRE, faker.name().firstName());
+        limpiarCampo(CAMPO_APELLIDO);
         typeInto(CAMPO_APELLIDO, faker.name().lastName());
+        limpiarCampo(CAMPO_EDAD);
         typeInto(CAMPO_EDAD, String.valueOf(faker.number().numberBetween(18, 80)));
+        limpiarCampo(CAMPO_SALARIO);
         typeInto(CAMPO_SALARIO, String.valueOf(faker.number().numberBetween(1000,12000)));
+        limpiarCampo(CAMPO_DEPARTAMENTO);
         typeInto(CAMPO_DEPARTAMENTO, faker.industrySegments().sector());
 
         waitSeconds(1);
@@ -140,20 +145,25 @@ public class WebTablesPage extends FunctionsCommons {
         typeInto(CAMPO_BUSQUEDA, Correo);
     }
 
-    private void limpiarCampoBusqueda() {
+    public void limpiarCampoBusqueda() {
+        CAMPO_BUSQUEDA = driver.findElement(By.id("searchBox"));
         limpiarCampo(CAMPO_BUSQUEDA);
     }
 
     public By obtenerByXpath(String elemento){
         waitSeconds(1);
+
         switch (elemento) {
             case "correo":
+                buscarFilaCorreo(fila.getCorreo());
                 By ASSERTION_EMAIL = By.xpath(String.format("//*[contains(text(), '%s')]", fila.getCorreo()));
                 return ASSERTION_EMAIL;
             case "nombre":
+                buscarFilaCorreo(fila.getNombre());
                 By ASSERTION_NOMBRE = By.xpath(String.format("//*[contains(text(), '%s')]", fila.getNombre()));
                 return ASSERTION_NOMBRE;
             case "apellido":
+                buscarFilaCorreo(fila.getApellido());
                 By ASSERTION_APELLIDO = By.xpath(String.format("//*[contains(text(), '%s')]", fila.getApellido()));
                 return ASSERTION_APELLIDO;
             default:

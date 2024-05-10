@@ -15,25 +15,12 @@ public class WebTablesStepDefinition extends WebSetup {
     WebTableModel webTableModel;
     PageFactoryMain pageFactoryMain;
 
-    @Given("El usuario esta en la pagina web de elements demoqa {int}")
-    public void elUsuarioEstaEnLaPaginaWebDeElementsDemoqa(Integer browser) {
-        try {
-            generalSetup(browser);
-            pageFactoryMain.navegarAElements();
-            webTablesPage.abrirWebElements();
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            Assertions.fail();
-            quiteDrive();
-        }
-    }
     @When("usa el boton de add")
     public void usaElBotonDeAdd() {
         try {
             webTablesPage = new WebTablesPage(driver, webTableModel);
+            webTablesPage.abrirWebElements();
             webTablesPage.agregarFilaBoton();
-
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -69,6 +56,7 @@ public class WebTablesStepDefinition extends WebSetup {
     public void eliminaLaFilaConElCorreo(String correo) {
         try {
             webTablesPage.eliminarFila(correo);
+            webTablesPage.waitSeconds(2);
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -76,13 +64,13 @@ public class WebTablesStepDefinition extends WebSetup {
             quiteDrive();
         }
     }
-    @Then("deberia verse todos los cambios hechos en la tabla")
-    public void deberiaVerseTodosLosCambiosHechosEnLaTabla() {
+    @Then("deberia verse todos los cambios hechos en la tabla {string} {string} {string}")
+    public void deberiaVerseTodosLosCambiosHechosEnLaTabla(String corre, String nombre, String apellido) {
         try {
-
-           // Assertions.assertEquals(MENSAJE_ESPERADO_CORREO_WEBTABLES, webTablesPage.obtenerTexto("correo"));
-           // Assertions.assertEquals(MENSAJE_ESPERADO_NOMBRE_WEBTABLES, webTablesPage.obtenerTexto("nombre"));
-           // Assertions.assertEquals(MENSAJE_ESPERADO_APELLIDO_WEBTABLES, webTablesPage.obtenerTexto("apellido"));
+            webTablesPage.limpiarCampoBusqueda();
+          Assertions.assertEquals(corre, webTablesPage.obtenerTexto("correo"));
+          Assertions.assertEquals(nombre, webTablesPage.obtenerTexto("nombre"));
+          Assertions.assertEquals(apellido, webTablesPage.obtenerTexto("apellido"));
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
