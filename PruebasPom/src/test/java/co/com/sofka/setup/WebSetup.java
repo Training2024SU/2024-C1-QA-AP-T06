@@ -10,8 +10,8 @@ import static co.com.sofka.Constantes.DEMO_QA_URL;
 import static co.com.sofka.Constantes.OPCION_VALIDA;
 
 public class WebSetup {
+    protected static WebDriver driver;
 
-    protected WebDriver driver;
 
     private void setupWebDriverUrl(int driverSelect) {
         switch (driverSelect) {
