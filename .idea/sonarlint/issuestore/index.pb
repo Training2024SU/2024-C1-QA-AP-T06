@@ -11,3 +11,5 @@ PPruebasPom/src/test/java/co/com/sofka/stepdefinitions/elements/TestElements.jav
 WPruebasPom/src/test/java/co/com/sofka/stepdefinitions/widgets/DateTimePickersSteps.java,f/f/ff72e4e3b4bec885481e8359fc7f2d2733e4c4ca
 ~
 NPruebasPom/src/test/java/co/com/sofka/stepdefinitions/widgets/TestWidgets.java,e/d/ed45d81a15c861a5099b615372f63611b03b5c67
+E
+PruebasPom/.gitignore,d/d/dd6d04036260850087db936ad9279cc068cbf520
