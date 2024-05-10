@@ -19,3 +19,18 @@ Feature: Elements DemoQA
     Given el usuario esta en el apartado links de Elementos
     When el usuario hace clic en los enlaces Home y HomewXVOz
     Then se deberian redirigir al home de DemoQA correctamente
+
+
+  @CheckBox
+  Scenario: Interacción con casillas de verificación
+    Given el usuario accede a la sección de casillas de verificación
+    When expande selecciona y reduce las casillas de verificación
+    Then debería ver un mensaje con la cantidad de casillas seleccionadas
+
+  @Radio
+  Scenario: Interacción con radio button
+    Given el usuario accede a la sección de botones de radio
+    When selecciona las opciones de radio
+    Then debería ver un mensaje correspondiente al boton de radio seleccionado
+
+
