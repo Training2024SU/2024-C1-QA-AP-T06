@@ -10,8 +10,7 @@ import org.junit.runner.RunWith;
         glue = "co.com.sofka.stepdefinitions",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         publish = true,
-        tags = "@tabs"
-
+        tags = "@tool"
 )
 public class FormularioTest {
 }
