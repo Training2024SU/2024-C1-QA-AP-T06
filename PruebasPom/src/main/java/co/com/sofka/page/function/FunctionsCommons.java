@@ -40,11 +40,6 @@ public class FunctionsCommons {
         element.sendKeys(text);
     }
 
-    protected void scrollTo(By locator) {
-        JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript("arguments[0].scrollIntoView();", driver.findElement(locator));
-    }
-
     protected void cleanField(WebElement element) {
         element.clear();
     }
