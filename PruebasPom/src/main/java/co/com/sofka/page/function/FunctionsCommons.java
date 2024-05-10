@@ -4,6 +4,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.List;
@@ -84,5 +85,9 @@ public class FunctionsCommons {
             wait.until(ExpectedConditions.alertIsPresent());
         }catch (Exception e){
         }
+    }
+    protected void waitToBeVisible(WebElement webElement) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(webElement));
     }
 }

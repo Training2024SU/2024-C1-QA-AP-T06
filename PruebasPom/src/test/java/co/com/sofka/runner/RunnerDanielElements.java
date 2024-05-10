@@ -9,8 +9,9 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "co.com.sofka.stepdefinitions",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        tags = "@frames",
-        publish = true
+        tags = "@Radio"
+        //tags = "@CheckBox"
+
 )
-public class ServicesTest {
+public class RunnerDanielElements {
 }
