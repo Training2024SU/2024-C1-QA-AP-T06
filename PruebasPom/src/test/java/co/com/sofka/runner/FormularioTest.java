@@ -9,9 +9,8 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "co.com.sofka.stepdefinitions",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        publish = true,
-        tags = "@TextBox"
-
+        tags = "@FechaHora",
+        publish = true
 )
 public class FormularioTest {
 }
