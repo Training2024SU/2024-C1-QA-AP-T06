@@ -90,4 +90,10 @@ public class FunctionsCommons {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(webElement));
     }
+    public void switchToIframe(WebElement locator){
+        driver.switchTo().frame(locator);
+    }
+    public void switchToPagina(WebElement locator){
+        driver.switchTo().defaultContent();
+    }
 }
