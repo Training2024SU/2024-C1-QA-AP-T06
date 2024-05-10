@@ -21,3 +21,9 @@ Feature:
     When el usuario hace clic en los enlaces Home y HomewXVOz
     Then se deberian redirigir al home de DemoQA correctamente
 
+  @CheckBox
+  Scenario: Interacción con casillas de verificación
+    Given el usuario accede a la sección de casillas de verificación
+    When expande selecciona y reduce las casillas de verificación
+    Then debería ver un mensaje con la cantidad de casillas seleccionadas
+
