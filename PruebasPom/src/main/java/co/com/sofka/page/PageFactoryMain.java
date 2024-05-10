@@ -29,6 +29,10 @@ public class PageFactoryMain extends FunctionsCommons {
     @FindBy(xpath = "//h5[contains(text(), 'Elements')]/ancestor::div[@class = 'card mt-4 top-card']")
     private WebElement elementos;
 
+    @CacheLookup
+    @FindBy(xpath = "//h5[contains(text(), 'Book Store Application')]")
+    private WebElement bookStoreApplication;
+
 
     public PageFactoryMain(WebDriver driver) {
         super(driver);
@@ -55,5 +59,9 @@ public class PageFactoryMain extends FunctionsCommons {
     public void navegarAElements() {
         clickSelection(elementos);
     }
+
+    public void navegarBookStoreApplication(){
+        scrollTo(bookStoreApplication);
+        clickSelection(bookStoreApplication);}
 
 }
