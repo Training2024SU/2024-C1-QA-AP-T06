@@ -16,10 +16,6 @@ import java.time.Duration;
 
 public class AlertsPage extends FunctionsCommons {
 
-//    public AlertsPage(WebDriver driver) {
-//        super(driver);
-//          PageFactory.initElements(driver,this);
-//    }
 
     @CacheLookup
     @FindBy(xpath = "//h5[text()='Forms']")
@@ -60,6 +56,7 @@ public class AlertsPage extends FunctionsCommons {
     @FindBy(id = "promptResult")
     private WebElement ESTE;
     private String promptAlertMessage;
+
 
     public AlertsPage(WebDriver driver) {
         super(driver);
