@@ -44,6 +44,7 @@ public class PageFactoryMain extends FunctionsCommons {
     }
 
     public void navegarAAlertas() {
+        scrollTo(alertas);
         clickSelection(alertas);
     }
 
