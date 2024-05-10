@@ -38,8 +38,8 @@ Feature: Books Store
     And deberia recibir una respuesta exitosa con codigo 201
     Examples:
       | user               | contrasena        |
-      | johan011 Cifuentes  | johan123$$ABC     |
-      | jorge011 rodriguez  | jorge123$$ABC     |
-      | Pacho011 valenzuela | pacho123$$ABCCool |
+      | johan0111 Cifuentes  | johan123$$ABC     |
+      | jorge0111 rodriguez  | jorge123$$ABC     |
+      | Pacho0111 valenzuela | pacho123$$ABCCool |
 
 
