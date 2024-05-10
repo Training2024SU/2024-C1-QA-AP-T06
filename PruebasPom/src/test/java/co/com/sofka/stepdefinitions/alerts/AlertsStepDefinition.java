@@ -21,19 +21,19 @@ public class AlertsStepDefinition extends WebSetup {
     }
     @When("clickea sobre la alerta de click")
     public void clickeaSobreLaAlertaDeClick() {
-
+        alertsPage.clickAlert();
     }
     @Then("debería ver una ventana emergente")
     public void deberíaVerUnaVentanaEmergente() {
-
+        quiteDrive();
     }
     @When("clickea sobre la alerta con timer")
     public void clickeaSobreLaAlertaConTimer() {
-        quiteDrive();
+
     }
     @Then("debería ver una ventana emergente despues de cinco segundos")
     public void deberíaVerUnaVentanaEmergenteDespuesDeCincoSegundos() {
-
+        quiteDrive();
     }
     @When("clickea sobre la alerta con confirmacion")
     public void clickeaSobreLaAlertaConConfirmacion() {
@@ -41,7 +41,7 @@ public class AlertsStepDefinition extends WebSetup {
     }
     @Then("debería ver una ventana emergente con una opcion de confirmar")
     public void deberíaVerUnaVentanaEmergenteConUnaOpcionDeConfirmar() {
-
+        quiteDrive();
     }
     @When("clickea sobre la alerta con prompt enviando el name Juan")
     public void clickeaSobreLaAlertaConPromptEnviandoElNameJuan() {
@@ -49,6 +49,6 @@ public class AlertsStepDefinition extends WebSetup {
     }
     @Then("deberia observar la alerta con el nombre")
     public void deberiaObservarLaAlertaConElNombre() {
-
+        quiteDrive();
     }
 }
