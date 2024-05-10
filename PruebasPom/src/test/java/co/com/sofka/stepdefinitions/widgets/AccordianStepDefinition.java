@@ -1,6 +1,5 @@
 package co.com.sofka.stepdefinitions.widgets;
 
-import co.com.sofka.page.DatePickerPage;
 import co.com.sofka.page.WidgetsPage;
 import co.com.sofka.page.components.ReactionWidgets;
 import co.com.sofka.setup.WebSetup;
@@ -32,7 +31,7 @@ public class AccordianStepDefinition extends WebSetup {
     public void quiereUtilizarElAccordian() {
         try {
             reactionWidgets.selecionAccordian(10);
-            System.err.println("Se llama a la funcion seleccion");
+            System.err.println("Se ejecuta la funcion Accordian");
         } catch (Exception e) {
             System.err.println(e.getMessage());
             quiteDrive();
@@ -44,7 +43,7 @@ public class AccordianStepDefinition extends WebSetup {
     public void deberiaMoverseAutomaticamente() {
         try {
             assertThat(reactionWidgets.validarAccordian(),containsString(VALOR_ACCORDIAN));
-            Assertions.assertTrue(reactionWidgets.estadDesplegado(2));
+            Assertions.assertTrue(reactionWidgets.estadoDesplegado(2));
             System.err.println("Asercion Acordian");
         } catch (Exception e) {
             System.err.println(e.getMessage());

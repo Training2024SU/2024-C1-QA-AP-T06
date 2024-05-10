@@ -6,16 +6,16 @@ Feature: prueba de los Widgets
   Background:
     Given El usuario esta en la pagina web de widgets demoqa 1
 
-  @accordian @widgets
+  @accordian @widget
   Scenario: prueba de Accordian
     Given el usuario se dirige a la página widget Accordian
     When quiere utilizar el Accordian
     Then deberia moverse automaticamente
 
-  @autocomplete @widget
+  @autocomplete @widgets
   Scenario: prueba de Auto complete
     Given el usuario se dirige a la página widget Auto complete
-    When quiere utilizar el auto complete
+    When quiere utilizar el auto complete "Aq" "bla"
     Then deberia completarse automaticamente
 
   @tabs
