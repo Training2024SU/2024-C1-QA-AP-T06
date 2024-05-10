@@ -9,3 +9,5 @@ MPruebasPom/src/test/java/co/com/sofka/stepdefinitions/bookstore/TestBook.java,
 PPruebasPom/src/test/java/co/com/sofka/stepdefinitions/elements/TestElements.java,d/f/df6ceea329946cd0c4e657af1e295a3b217de0f9
 ‡
 WPruebasPom/src/test/java/co/com/sofka/stepdefinitions/widgets/DateTimePickersSteps.java,f/f/ff72e4e3b4bec885481e8359fc7f2d2733e4c4ca
+~
+NPruebasPom/src/test/java/co/com/sofka/stepdefinitions/widgets/TestWidgets.java,e/d/ed45d81a15c861a5099b615372f63611b03b5c67
