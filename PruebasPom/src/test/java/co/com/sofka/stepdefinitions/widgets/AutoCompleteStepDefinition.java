@@ -1,6 +1,6 @@
 package co.com.sofka.stepdefinitions.widgets;
 
-import co.com.sofka.page.function.WidgetsPage;
+import co.com.sofka.page.WidgetsPage;
 import co.com.sofka.setup.WebSetup;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

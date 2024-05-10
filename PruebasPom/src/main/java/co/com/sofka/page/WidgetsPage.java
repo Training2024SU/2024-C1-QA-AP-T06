@@ -1,5 +1,6 @@
-package co.com.sofka.page.function;
+package co.com.sofka.page;
 
+import co.com.sofka.page.function.FunctionsCommons;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

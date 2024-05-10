@@ -12,7 +12,7 @@ Feature: prueba de los Widgets
     When quiere utilizar el Accordian
     Then deberia moverse automaticamente
 
-  @autocomplete @widgets
+  @autocomplete @widget
   Scenario: prueba de Auto complete
     Given el usuario se dirige a la página widget Auto complete
     When quiere utilizar el auto complete

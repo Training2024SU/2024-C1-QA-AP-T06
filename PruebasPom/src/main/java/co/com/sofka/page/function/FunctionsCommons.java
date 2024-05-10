@@ -1,7 +1,11 @@
 package co.com.sofka.page.function;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 
+import java.time.Duration;
 import java.util.List;
 
 public class FunctionsCommons {
@@ -63,5 +67,22 @@ public class FunctionsCommons {
 
     protected List<WebElement> findElements(By locator) {
         return driver.findElements(locator);
+    }
+
+    protected void limpiarCampo(By locator){driver.findElement(locator).clear();}
+
+    protected void limpiarCampo(WebElement locator){locator.clear();}
+
+    public void waitSeconds(int seconds) {
+        //NO FUNCIONA CON MODULOS WEBS CON ALERTAS
+        Wait<WebDriver> wait =
+                new FluentWait<>(driver)
+                        .withTimeout(Duration.ofSeconds(seconds))
+                        .pollingEvery(Duration.ofMillis(300))
+                        .ignoring(ElementNotInteractableException.class);
+        try{
+            wait.until(ExpectedConditions.alertIsPresent());
+        }catch (Exception e){
+        }
     }
 }
