@@ -14,7 +14,6 @@ Feature:
       | nombre  | apellido   | correo              | edad | salario | departamento | correoActualizar     | correoEliminar      |
       | "jorge" | "de neiva" | "jorge@example.com" | 35   | 2000    | "CALIDAD"    | "cierra@example.com" | "alden@example.com" |
 
-
   @nuevaPestaña
   Scenario: abrir link nueva pestaña
     Given el usuario esta en el apartado links de Elementos
@@ -26,4 +25,3 @@ Feature:
     Given el usuario accede a la sección de casillas de verificación
     When expande selecciona y reduce las casillas de verificación
     Then debería ver un mensaje con la cantidad de casillas seleccionadas
-
