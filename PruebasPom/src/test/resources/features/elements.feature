@@ -3,6 +3,7 @@ Feature: Elements DemoQA
   Background:
     Given El usuario esta en la pagina web de elements demoqa 1
 
+
   @webtables
   Scenario Outline: agregar, actualizar y borrar tablas
     When usa el boton de add
@@ -32,5 +33,6 @@ Feature: Elements DemoQA
     Given el usuario accede a la sección de botones de radio
     When selecciona las opciones de radio
     Then debería ver un mensaje correspondiente al boton de radio seleccionado
+
 
 

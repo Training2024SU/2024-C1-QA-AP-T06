@@ -7,21 +7,10 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-
 public class PageFactoryMain extends FunctionsCommons {
 
-    public PageFactoryMain(WebDriver driver) {
-        super(driver);
-        PageFactory.initElements(driver, this);
-    }
-
-    // Localizadores
     @CacheLookup
-    @FindBy(xpath = "//h5[contains(text(), 'Elements')]")
-    private WebElement elementos;
-
-    @CacheLookup
-    @FindBy(xpath = "//h5[contains(text(), 'Forms')]")
+    @FindBy(xpath = "//h5[contains(text() , 'Forms')]/ancestor::div[@class = 'card mt-4 top-card']")
     private WebElement forms;
 
     @CacheLookup
@@ -36,7 +25,20 @@ public class PageFactoryMain extends FunctionsCommons {
     @FindBy(xpath = "//h5[contains(text(), 'Widgets')]")
     private WebElement widgets;
 
-    // Funciones
+    @CacheLookup
+    @FindBy(xpath = "//h5[contains(text(), 'Elements')]/ancestor::div[@class = 'card mt-4 top-card']")
+    private WebElement elementos;
+
+    @CacheLookup
+    @FindBy(xpath = "//h5[contains(text(), 'Book Store Application')]")
+    private WebElement bookStoreApplication;
+
+
+    public PageFactoryMain(WebDriver driver) {
+        super(driver);
+        PageFactory.initElements(driver, this);
+    }
+
     public void navegarAForms() {
         scrollTo(forms);
         clickSelection(forms);
@@ -62,5 +64,9 @@ public class PageFactoryMain extends FunctionsCommons {
         clickSelection(elementos);
 
     }
+
+    public void navegarBookStoreApplication(){
+        scrollTo(bookStoreApplication);
+        clickSelection(bookStoreApplication);}
 
 }
