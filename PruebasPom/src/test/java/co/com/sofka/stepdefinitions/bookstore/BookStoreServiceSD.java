@@ -1,7 +1,6 @@
 package co.com.sofka.stepdefinitions.bookstore;
 
 import co.com.sofka.setup.ServiceSetup;
-import co.com.sofka.setup.WebSetup;
 import io.cucumber.java.en.Given;
 import io.restassured.RestAssured;
 
