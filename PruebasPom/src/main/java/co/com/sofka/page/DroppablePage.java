@@ -25,6 +25,11 @@ public class DroppablePage extends FunctionsCommons {
     private final By DRAG_BOX = By.id("dragBox");
     private final By DROP_ZONE = By.id("notGreedyInnerDropBox");
     private final By DROP_ZONE_GREDDY = By.id("greedyDropBoxInner");
+    private final By REVERT_DRAGGABLE_BOTON = By.xpath("//a[@id='droppableExample-tab-revertable']");
+    private final By WILL_REVERT_DRAG = By.id("revertable");
+    private final By NOT_REVERT_DRAG = By.xpath("//div[@id='notRevertable']");
+    private final By DROPPABLE_REVERT = By.cssSelector("#revertableDropContainer #droppable");
+    private final By DROPPABLE_BOX_TEXT = By.xpath("//p[text()='Dropped!']");
 
     public DroppablePage(WebDriver driver) {
         super(driver);
@@ -80,6 +85,10 @@ public class DroppablePage extends FunctionsCommons {
         clickSelection(PREVENT_PROPAGATION_BOTON);
     }
 
+    public void irARevertDraggable() {
+        clickSelection(REVERT_DRAGGABLE_BOTON);
+    }
+
     public void dragHastaInnerDrop() {
         moveElementsBy(DRAG_BOX, DROP_ZONE);
     }
@@ -96,5 +105,19 @@ public class DroppablePage extends FunctionsCommons {
     public String mensajeGreedyDropZone() {
         WebElement dropZoneGreedy = driver.findElement(DROP_ZONE_GREDDY);
         return dropZoneGreedy.getText();
+    }
+
+    public void dragWillRevertADropZone() {
+        dragAndDropBy(WILL_REVERT_DRAG, 300, 0);
+    }
+
+    public void dragNotRevertADropZone() {
+        waitToBeVisible(driver.findElement(NOT_REVERT_DRAG));
+        waitToBeClickeable(NOT_REVERT_DRAG);
+        moveElementsBy(NOT_REVERT_DRAG, DROPPABLE_REVERT);
+    }
+
+    public String obtenerTexto() {
+        return driver.findElement(DROPPABLE_REVERT).getText();
     }
 }
