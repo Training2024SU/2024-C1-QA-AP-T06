@@ -125,5 +125,29 @@ public class FunctionsCommons {
                 .perform();
     }
 
+    protected void moveToElement (WebElement webElement){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(webElement, webElement.getLocation().getX(), webElement.getLocation().getY()).perform();
+    }
+
+    protected void clickAndHold (WebElement webElement){
+        Actions actions = new Actions(driver);
+        actions.clickAndHold(webElement).perform();
+    }
+
+    protected void moveByOfset (WebElement webElement, int xOffset,int yOffset ){
+        Actions actions = new Actions(driver);
+        actions.clickAndHold(webElement).moveByOffset(xOffset, yOffset).release().build().perform();
+    }
+
+    public int getElementWidth( WebElement element) {
+        return element.getSize().getWidth();
+    }
+
+    public int getElementHeight(WebElement element) {
+        return element.getSize().getHeight();
+    }
+
 
 }
+
