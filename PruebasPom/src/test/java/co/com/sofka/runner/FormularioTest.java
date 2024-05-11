@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         glue = "co.com.sofka.stepdefinitions",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         publish = true,
-        tags = "@TextBox"
+        tags = "@selectMenu"
 )
 public class FormularioTest {
 }

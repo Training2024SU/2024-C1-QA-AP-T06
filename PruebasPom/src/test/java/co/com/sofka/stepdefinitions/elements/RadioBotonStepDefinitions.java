@@ -1,3 +1,4 @@
+
 package co.com.sofka.stepdefinitions.elements;
 
 import co.com.sofka.page.CheckRadioPage;
@@ -17,12 +18,13 @@ public class RadioBotonStepDefinitions extends WebSetup {
 
     @Given("el usuario accede a la sección de botones de radio")
 
+
     public void elUsuarioAccedeALaSeccionDeBotonesDeRadio() {
         checkRadioPage = new CheckRadioPage(driver);
         checkRadioPage.seleccionarOpcionRadioButton();
 
+    public void elUsuarioAccedeALaSeccionDeBotonesDeRadio() {
 
-    public void elUsuarioAccedeALaSecciónDeBotonesDeRadio() {
         try {
             checkRadioPage = new CheckRadioPage(driver);
             checkRadioPage.seleccionarOpcionRadioButton();
@@ -33,7 +35,6 @@ public class RadioBotonStepDefinitions extends WebSetup {
         }
 
     }
-
     @When("selecciona las opciones de radio")
     public void seleccionaLasOpcionesDeRadio() {
         try {

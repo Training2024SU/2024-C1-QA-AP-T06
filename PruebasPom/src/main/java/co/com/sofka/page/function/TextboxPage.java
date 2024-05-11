@@ -39,7 +39,7 @@ public class TextboxPage extends FunctionsCommons {
         typeInto(CAMPO_EMAIL, textboxModel.getEmail());
         typeInto(CAMPO_CURRENT, textboxModel.getCurrent());
         typeInto(CAMPO_PERMANET, textboxModel.getPermanet());
-        scrollTo(BTN_SUBMIT);
+        //scrollTo(BTN_SUBMIT);
         clickSelection(BTN_SUBMIT);
         waitSeconds(10);
 

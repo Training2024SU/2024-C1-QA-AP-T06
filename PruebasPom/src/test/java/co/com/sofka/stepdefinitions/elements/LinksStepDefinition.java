@@ -7,7 +7,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
 
-import static co.com.sofka.Constantes.HOME_DEMO_QA;
+import static co.com.sofka.Constantes.*;
 
 public class LinksStepDefinition extends WebSetup {
 
@@ -44,8 +44,46 @@ public class LinksStepDefinition extends WebSetup {
             System.out.println(e.getMessage());
             quiteDrive();
             Assertions.fail();
+        }finally {
+            quiteDrive();
         }
 
+    }
+
+    @When("el usuario hace click en todas los link de api call")
+    public void elUsuarioHaceClickEnTodasLosLinkDeApiCall() {
+        try {
+            elementLinksPage.createdClick();
+            elementLinksPage.noContentClick();
+            elementLinksPage.movedClick();
+            elementLinksPage.badRequestClick();
+            elementLinksPage.unauthorizedClick();
+            elementLinksPage.forbiddenClick();
+            elementLinksPage.notFoundClick();
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            quiteDrive();
+            Assertions.fail();
+        }
+    }
+    @Then("se deberia mostrar en pantalla un mensaje con la respuesta de la api")
+    public void seDeberiaMostrarEnPantallaUnMensajeConLaRespuestaDeLaApi() throws InterruptedException {
+        try {
+            Assertions.assertEquals(CREATED,elementLinksPage.getResponseCreated());
+            Assertions.assertEquals(NO_CONTENT, elementLinksPage.getResponseNoContent());
+            Assertions.assertEquals(MOVED, elementLinksPage.getResponseMoved());
+            Assertions.assertEquals(BAD_REQUEST, elementLinksPage.getResponseBadRequest());
+            Assertions.assertEquals(UNAUTHORIZED, elementLinksPage.getResponseUnauthorized());
+            Assertions.assertEquals(FORBIDDEN, elementLinksPage.getResponseForbidden());
+            Assertions.assertEquals(NOT_FOUND, elementLinksPage.getResponseNotFound());
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            quiteDrive();
+            Assertions.fail();
+        }finally {
+//            Thread.sleep(5000); para pruebas no descomentar
+            quiteDrive();
+        }
     }
 
 }

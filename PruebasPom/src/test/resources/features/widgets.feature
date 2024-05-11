@@ -40,8 +40,8 @@ Feature:
       | texto                     |
       | El texto esta en el campo |
 
-  @slider
-  Scenario: Mover posicion en slider
-    And se dirige a la seccion de slider
-    When desplaza el slider a otro punto 40 pixeles
-    Then deberia cambiar el numero del input a 62
+  @selectMenu
+  Scenario: llenar campos select menu
+    When se dirije a la pagina select menu
+    And completa todos los campos
+    Then deberia poder ver toda la infomacion ingresada
