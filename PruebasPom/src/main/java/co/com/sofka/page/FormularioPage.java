@@ -196,11 +196,6 @@ public class FormularioPage extends FunctionsCommons {
     }
 
     public void enviarFormulario(){
-        /*try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }*/
         clickSelection(BOTON_SUBMIT);
     }
 
