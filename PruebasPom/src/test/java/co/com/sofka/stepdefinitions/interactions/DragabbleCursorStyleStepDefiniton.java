@@ -11,12 +11,12 @@ public class DragabbleCursorStyleStepDefiniton extends WebSetup{
     DragabblePage dragabblePage = new DragabblePage(driver);
     byte[] screenshotBeforeMove;
     byte[] screenshotAfterMove;
-    @When ("accede a la ventana cursor style en el navegador de draggable {int}")
+    @When ("accede a la seccion en estilo de cursor en el navegador de dragabble {int}")
     public void accederAVentanaCursorStyleEnDraggable(int posicion) {
         try {
             dragabblePage.abrirDragableNavPorPosicion(posicion);
         } catch (Exception e) {
-            System.err.println("Error al acceder a la ventana cursor style en el navegador de draggable: " + e.getMessage());
+            System.err.println("Error al acceder a la ventana cursor style en el navegador de dragabble: " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -28,7 +28,7 @@ public class DragabbleCursorStyleStepDefiniton extends WebSetup{
 
             dragabblePage.moverElementosCursorStyle();
 
-            // Capturar una imagen de la página después de mover el elemento
+            // Capturar una imagen de la página despues de mover el elemento
             screenshotAfterMove = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
         } catch (Exception e) {
             System.err.println("Error al mover los elementos: " + e.getMessage());

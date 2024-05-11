@@ -12,18 +12,18 @@ public class DragabbleAxisRestrictedStepDefinition extends WebSetup {
     DragabblePage dragabblePage = new DragabblePage(driver);
     byte[] screenshotBeforeMove;
     byte[] screenshotAfterMove;
-    @When("accede a la ventana simple en el navegador de draggable {int}")
-    public void navegarDentroDelDraggable(int posicion){
+    @When("accede a la seccion de acceso restringido en el navegador de dragabble {int}")
+    public void accedeALaSeccionDeAccesoRestringidoEnElNavegadorDeDragabble(int posicion){
         dragabblePage.abrirDragableNavPorPosicion(posicion);
     }
     @When("mueve los elementos uno horizontal y otro verticalmente")
-    public void deberiaPoderMoverElElementoHaciaDondeDesee() {
+    public void mueveLosElementosUnoHorizontalYOtroVerticalmente() {
         // Capturar una imagen de la página antes de mover el elementos
         screenshotBeforeMove = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 
         dragabblePage.moverElElementoDraggableAxisRestricted();
 
-        // Capturar una imagen de la página después de mover los elementos
+        // Capturar una imagen de la página despues de mover los elementos
         screenshotAfterMove = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
      }
 
