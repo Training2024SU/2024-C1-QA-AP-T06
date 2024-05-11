@@ -23,7 +23,7 @@ public class RadioBotonStepDefinitions extends WebSetup {
         checkRadioPage = new CheckRadioPage(driver);
         checkRadioPage.seleccionarOpcionRadioButton();
 
-    public void elUsuarioAccedeALaSeccionDeBotonesDeRadio() {
+    //public void elUsuarioAccedeALaSeccionDeBotonesDeRadio() {
 
         try {
             checkRadioPage = new CheckRadioPage(driver);

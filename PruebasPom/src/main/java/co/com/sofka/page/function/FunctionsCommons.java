@@ -50,7 +50,7 @@ public class FunctionsCommons {
         jse.executeScript("arguments[0].scrollIntoView();", element);
     }
 
-    protected void scrollTo(By locator){
+    protected void scrollTo(By locator) {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("arguments[0].scrollIntoView();", driver.findElement(locator));
     }
@@ -96,6 +96,34 @@ public class FunctionsCommons {
     protected void waitToBeVisible(WebElement webElement) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(webElement));
+    }
+
+
+    protected void clickHolding(By draggable, By droppable) {
+        WebElement sourceElement = driver.findElement(draggable);
+        WebElement targetElement = driver.findElement(droppable);
+        Point targetLocation = targetElement.getLocation();
+        int targetX = targetLocation.getX();
+        int targetY = targetLocation.getY();
+        int xOffset = targetX - sourceElement.getLocation().getX() + 10;
+        int yOffset = targetY - sourceElement.getLocation().getY() + 10;
+
+        new Actions(driver)
+                .clickAndHold(sourceElement)
+                .moveByOffset(xOffset, yOffset)
+                .release()
+                .build()
+                .perform();
+
+        //new Actions(driver).dragAndDrop(sourceElement,targetElement).perform();
+
+    }
+
+    protected void moveElementsBy(By dragLocator, By dropLocator) {
+        WebElement dragElement = driver.findElement(dragLocator);
+        WebElement dropZone = driver.findElement(dropLocator);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(dragElement).clickAndHold().moveToElement(dropZone).release().perform();
     }
 
     public void switchToIframe(WebElement locator) {
