@@ -1,6 +1,6 @@
 package co.com.sofka.stepdefinitions.bookstore;
 
-import co.com.sofka.model.UserRegisterModel;
+import co.com.sofka.model.UserRegisterAPIModel;
 import co.com.sofka.setup.ServiceSetup;
 import com.google.gson.Gson;
 import io.cucumber.java.en.Then;
@@ -13,7 +13,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.notNullValue;
 
 public class BookStorePostUserSD extends ServiceSetup {
-    private UserRegisterModel userRegisterModel;
+    private UserRegisterAPIModel userRegisterAPIModel;
 
     @When("realiza la peticion POST correctamente ingresando el usuario {string} y la contrasena {string}")
     public void realizaLaPeticionPOSTCorrectamenteIngresandoElUsuarioYLaContrasena(String userName, String password) {
@@ -26,9 +26,9 @@ public class BookStorePostUserSD extends ServiceSetup {
         // ya que quedan guardados en la base de datos
 
         String name = userName + faker.bothify("#####");
-        userRegisterModel = new UserRegisterModel(name, password);
+        userRegisterAPIModel = new UserRegisterAPIModel(name, password);
 
-        String jsonModel = gson.toJson(userRegisterModel);
+        String jsonModel = gson.toJson(userRegisterAPIModel);
         response = request
                 .header("Content-Type", "application/json")
                 .body(jsonModel)
@@ -38,7 +38,7 @@ public class BookStorePostUserSD extends ServiceSetup {
 
     @Then("deberia ver informacion al usuario creado")
     public void deberiaVerInformacionAlUsuarioCreado() {
-        response.then().assertThat().body("username", equalTo(userRegisterModel.getUserName()));
+        response.then().assertThat().body("username", equalTo(userRegisterAPIModel.getUserName()));
         response.then().assertThat().body("userID", notNullValue());
     }
 }

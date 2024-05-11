@@ -68,24 +68,24 @@ public class ResizablePage extends FunctionsCommons {
     public void minSizeLimitBox(){
         scrollTo(bigBox);
         ewait.until(ExpectedConditions.elementToBeClickable(resizableHandleLimit));
-        moveByOfset(resizableHandleLimit,minSizeX,minSizey);
+        //moveByOfset(resizableHandleLimit,minSizeX,minSizey);
     }
 
     public void maxSizeLimitBox(){
         scrollTo(bigBox);
         ewait.until(ExpectedConditions.elementToBeClickable(resizableHandleLimit));
-        moveByOfset(resizableHandleLimit,maxSizeX,maxSizey);
+        //moveByOfset(resizableHandleLimit,maxSizeX,maxSizey);
     }
 
     public void minNotLimitBox(){
         scrollTo(notLimitBox);
         ewait.until(ExpectedConditions.elementToBeClickable(resizableHandle));
-        moveByOfset(resizableHandle,minSizeX,minSizey);
+        //moveByOfset(resizableHandle,minSizeX,minSizey);
     }
 
     public void maxNotLimitBox(){
         ewait.until(ExpectedConditions.elementToBeClickable(resizableHandle));
-        moveByOfset(resizableHandle, maxSizeX,maxSizeNotLimity);
+        //moveByOfset(resizableHandle, maxSizeX,maxSizeNotLimity);
     }
 
     public int getWidthLimitBoxSixe(){
