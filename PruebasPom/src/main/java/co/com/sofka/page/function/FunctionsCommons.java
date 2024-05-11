@@ -1,9 +1,11 @@
 package co.com.sofka.page.function;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.List;
@@ -37,11 +39,6 @@ public class FunctionsCommons {
 
     protected void sendKeys(WebElement element, String text) {
         element.sendKeys(text);
-    }
-
-    protected void scrollTo(By locator) {
-        JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript("arguments[0].scrollIntoView();", driver.findElement(locator));
     }
 
     protected void cleanField(WebElement element) {
@@ -84,5 +81,19 @@ public class FunctionsCommons {
             wait.until(ExpectedConditions.alertIsPresent());
         }catch (Exception e){
         }
+    }
+    protected void waitToBeVisible(WebElement webElement) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(webElement));
+    }
+    public void switchToIframe(WebElement locator){
+        driver.switchTo().frame(locator);
+    }
+    public void switchToPagina(WebElement locator){
+        driver.switchTo().defaultContent();
+    }
+    public void moverElementoEnEjeX(WebElement locator, int pixeles){
+        Actions actions = new Actions(driver);
+        actions.clickAndHold(locator).moveByOffset(pixeles, 0).release().perform();
     }
 }

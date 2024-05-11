@@ -3,12 +3,18 @@ package co.com.sofka.page;
 import co.com.sofka.page.function.FunctionsCommons;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class WidgetsPage extends FunctionsCommons {
+    @CacheLookup
     @FindBy(xpath = "//span[text()='Date Picker']/..")
     WebElement datePickerLI;
+
+    @CacheLookup
+    @FindBy(xpath = "//span[text()='Slider']")
+    private WebElement botonSlider;
 
     public WidgetsPage(WebDriver driver) {
         super(driver);
@@ -18,5 +24,10 @@ public class WidgetsPage extends FunctionsCommons {
     public void navegarADatePickerPage() {
         scrollTo(datePickerLI);
         clickSelection(datePickerLI);
+    }
+
+    public void navegarASlider() {
+        scrollTo(botonSlider);
+        clickSelection(botonSlider);
     }
 }
