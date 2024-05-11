@@ -2,6 +2,7 @@ package co.com.sofka.util;
 
 import co.com.sofka.model.FormularioModel;
 import co.com.sofka.model.WebTableModel;
+import net.datafaker.Faker;
 
 public class util {
 
@@ -15,5 +16,24 @@ public class util {
         webTableModel.setDepartamento(departamento);
         return webTableModel;
     }
+
+    public static FormularioModel crearUsuario(){
+        FormularioModel formularioModel = new FormularioModel();
+        Faker faker = new Faker();
+        formularioModel.setFirstName(faker.name().firstName());
+        formularioModel.setLastName(faker.name().lastName());
+        formularioModel.setMobile(faker.number().digits(10));
+        formularioModel.setEmail(faker.internet().emailAddress());
+        formularioModel.setBirth(faker.date().birthday());
+        formularioModel.setSubjects("Maths");
+        formularioModel.setSubjects("Commerce");
+        formularioModel.setSubjects("Chemistry");
+        formularioModel.setAddress(faker.address().fullAddress());
+        formularioModel.setState("Uttar Pradesh");
+        formularioModel.setCity("Agra");
+
+        return formularioModel;
+    }
+
 
 }

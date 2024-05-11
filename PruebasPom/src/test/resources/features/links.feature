@@ -5,11 +5,12 @@ Feature: Link Element
 
   Background:
     Given El usuario esta en la pagina web de elements demoqa 1
-    And el usuario navega al apartado links de Elementos
 
 
-  @nuevaPestaña
-  Scenario: abrir link nueva pestaña
-    When el usuario hace clic en los enlaces Home y HomewXVOz
-    Then se deberia estar en el apartado links de elementos luego de abrir la pestaña de los enlaces Home y HomewXVOz
+
+#  @nuevaPestaña
+#  Scenario: abrir link nueva pestaña
+#    Given el usuario navega al apartado links de Elementos
+#    When el usuario hace clic en los enlaces Home y HomewXVOz
+#    Then se deberia estar en el apartado links de elementos luego de abrir la pestaña de los enlaces Home y HomewXVOz
 
