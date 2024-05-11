@@ -13,7 +13,13 @@ Feature: Cajas droppables
     And arrastra la caja a la ubicacion indicada
     Then deberia observar un mensaje de dropped
 
-    Scenario: Drag Aceptable
-      When ingresa hasta la interaccion Droppable
-      And arrastra la caja con el texto Acceptable
-      Then deberia observar un mensaje de dropped!
+  Scenario: Drag Aceptable
+    When ingresa hasta la interaccion Droppable
+    And arrastra la caja con el texto Acceptable
+    Then deberia observar un mensaje de dropped!
+
+  @PreventPropogation
+  Scenario: Prevent propogation
+    When ingresa hasta la pagina de droppable al apartado prevent propogation
+    And arrastra la caja Drag me hasta inner droppable
+    Then debería aparecer un mensaje "Dropped!"

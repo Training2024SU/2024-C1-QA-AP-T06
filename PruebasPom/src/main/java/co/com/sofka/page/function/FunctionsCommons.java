@@ -50,7 +50,7 @@ public class FunctionsCommons {
         jse.executeScript("arguments[0].scrollIntoView();", element);
     }
 
-    protected void scrollTo(By locator){
+    protected void scrollTo(By locator) {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("arguments[0].scrollIntoView();", driver.findElement(locator));
     }
@@ -118,6 +118,14 @@ public class FunctionsCommons {
         //new Actions(driver).dragAndDrop(sourceElement,targetElement).perform();
 
     }
+
+    protected void moveElementsBy(By dragLocator, By dropLocator) {
+        WebElement dragElement = driver.findElement(dragLocator);
+        WebElement dropZone = driver.findElement(dropLocator);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(dragElement).clickAndHold().moveToElement(dropZone).release().perform();
+    }
+
     public void switchToIframe(WebElement locator) {
         driver.switchTo().frame(locator);
     }

@@ -16,21 +16,22 @@ public class DroppablePage extends FunctionsCommons {
     private final By FORMS_LINK = By.xpath("//h5[text()='Forms']");
     private final By INTERACTIONS_LIST = By.xpath("//div[text()='Interactions']");
     private final By DROPPABLE_LINK = By.xpath("//span[contains(@class, 'text') and contains(text(),'Droppable')]");
-
     private final By DRAGGABLE_BOX = By.id("draggable");
     private final By DROPPABLE_BOX = By.id("droppable");
     private final By DROPPABLE_BOX2 = By.cssSelector("#acceptDropContainer #droppable");
     private final By ACCEPTABLE_BOX = By.id("acceptable");
     private final By ACEPT_CASE = By.id("droppableExample-tab-accept");
-
-
+    private final By PREVENT_PROPAGATION_BOTON = By.xpath("//a[@id='droppableExample-tab-preventPropogation']");
+    private final By DRAG_BOX = By.id("dragBox");
+    private final By DROP_ZONE = By.id("notGreedyInnerDropBox");
+    private final By DROP_ZONE_GREDDY = By.id("greedyDropBoxInner");
 
     public DroppablePage(WebDriver driver) {
         super(driver);
     }
 
     // Funciones
-    public void goToDroppable(){
+    public void goToDroppable() {
         scrollTo(FORMS_LINK);
         clickSelection(FORMS_LINK);
         scrollTo(INTERACTIONS_LIST);
@@ -40,9 +41,9 @@ public class DroppablePage extends FunctionsCommons {
         clickSelection(DROPPABLE_LINK);
     }
 
-    public void holdClick(){
+    public void holdClick() {
         scrollTo(DRAGGABLE_BOX);
-        clickHolding(DRAGGABLE_BOX,DROPPABLE_BOX);
+        clickHolding(DRAGGABLE_BOX, DROPPABLE_BOX);
     }
 
     public void holdClickA() throws InterruptedException {
@@ -51,22 +52,22 @@ public class DroppablePage extends FunctionsCommons {
         scrollTo(ACCEPTABLE_BOX);
         scrollTo(DROPPABLE_BOX2);
 
-        clickHolding(ACCEPTABLE_BOX,DROPPABLE_BOX2);
+        clickHolding(ACCEPTABLE_BOX, DROPPABLE_BOX2);
     }
 
-    public String getMensaje(){
+    public String getMensaje() {
         WebElement droppableElement = driver.findElement(DROPPABLE_BOX);
         System.out.println(droppableElement.getText());
         return droppableElement.getText();
     }
 
-    public String getMensajeA(){
+    public String getMensajeA() {
         WebElement droppableElement = driver.findElement(DROPPABLE_BOX2);
         System.out.println(droppableElement.getText());
         return droppableElement.getText();
     }
 
-    protected void dragCoordinates(WebElement element, int targetX, int targetY){
+    protected void dragCoordinates(WebElement element, int targetX, int targetY) {
         Actions action = new Actions(driver);
         action.clickAndHold(element)
                 .moveToElement(element, targetX, targetY)
@@ -75,4 +76,25 @@ public class DroppablePage extends FunctionsCommons {
                 .perform();
     }
 
+    public void irAPreventPropagation() {
+        clickSelection(PREVENT_PROPAGATION_BOTON);
+    }
+
+    public void dragHastaInnerDrop() {
+        moveElementsBy(DRAG_BOX, DROP_ZONE);
+    }
+
+    public void dragHastaGreedyInnerDrop() {
+        moveElementsBy(DRAG_BOX, DROP_ZONE_GREDDY);
+    }
+
+    public String mensajeDropZone() {
+        WebElement dropZone = driver.findElement(DROP_ZONE);
+        return dropZone.getText();
+    }
+
+    public String mensajeGreedyDropZone() {
+        WebElement dropZoneGreedy = driver.findElement(DROP_ZONE_GREDDY);
+        return dropZoneGreedy.getText();
+    }
 }
