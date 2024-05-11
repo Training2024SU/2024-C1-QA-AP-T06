@@ -11,7 +11,7 @@ public class SortableGridStepDefinitions extends WebSetup {
     SortablePage sortablePage;
 
     @When("el usuario selecciona en la página de ordenamiento")
-    public void el_usuario_selecciona_en_la_página_de_ordenamiento() {
+    public void el_usuario_selecciona_en_la_pagina_de_ordenamiento() {
        try{
            sortablePage = new SortablePage(driver);
            sortablePage.getElements();
@@ -36,7 +36,7 @@ public class SortableGridStepDefinitions extends WebSetup {
 
     }
     @Then("debería ver la opción ordenada")
-    public void debería_ver_la_opción_ordenada() {
+    public void debería_ver_la_opcion_ordenada() {
         try {
             // Verificar si los elementos están organizados correctamente
             Assertions.assertTrue(sortablePage.compareLists());

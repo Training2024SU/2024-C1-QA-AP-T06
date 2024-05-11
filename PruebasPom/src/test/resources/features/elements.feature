@@ -94,5 +94,19 @@ Feature: Elements DemoQA
     Then deberia de mostrar su correspondiente alerta de imagen invalido
 
 
+    @BottonClick
+  Scenario: Prueba de click en el boton
+    When hace click en el boton
+    Then deberia ver el mensaje de click
 
 
+  @BottonClickDerecho
+  Scenario: Prueba de click derecho en el boton
+    When hace click derecho en el boton
+    Then deberia ver el mensaje de click derecho
+
+
+  @BottonDobleClick
+  Scenario: Prueba de doble click en el boton
+    When hace doble click en el boton
+    Then deberia ver el mensaje de doble click

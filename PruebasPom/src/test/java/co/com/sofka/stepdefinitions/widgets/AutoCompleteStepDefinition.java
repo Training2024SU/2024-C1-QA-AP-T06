@@ -17,7 +17,7 @@ public class AutoCompleteStepDefinition extends WebSetup {
     ReactionWidgets reactionWidgets = new ReactionWidgets(driver);
 
     @Given("el usuario se dirige a la página widget Auto complete")
-    public void elUsuarioSeDirigeALaPáginaWidgetAutoComplete() {
+    public void elUsuarioSeDirigeALaPaginaWidgetAutoComplete() {
         try {
             WidgetsPage widgetsPage = new WidgetsPage(driver);
             widgetsPage.navegarAutoComplete();

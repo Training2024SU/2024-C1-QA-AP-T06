@@ -16,7 +16,7 @@ public class MenuStepDefinition extends WebSetup {
     ReactionWidgets reactionWidgets = new ReactionWidgets(driver);
 
     @Given("el usuario se dirige a la página widget menu")
-    public void elUsuarioSeDirigeALaPáginaWidgetMenu() {
+    public void elUsuarioSeDirigeALaPaginaWidgetMenu() {
         try {
             WidgetsPage widgetsPage = new WidgetsPage(driver);
             widgetsPage.navegarMenu();
