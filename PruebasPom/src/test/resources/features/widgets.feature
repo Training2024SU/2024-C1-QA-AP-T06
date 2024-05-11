@@ -31,7 +31,7 @@ Feature:
       | 2035-09-15T15:45 | September 15, 2035 3:45 PM |
       | 2015-11-20T09:00 | November 20, 2015 9:00 AM  |
 
-  @toolTips
+  @tool
   Scenario Outline: interaccion con elementos tool Tips
     When se dirije a la pagina toolTips
     And ingresa el texto "<texto>" en el campo de texto
@@ -39,9 +39,3 @@ Feature:
     Examples:
       | texto                     |
       | El texto esta en el campo |
-
-  @selectMenu
-  Scenario: llenar formulario select menu
-    When se dirije a la pagina select menu
-    And completa todos los campos
-    Then deberia poder ver toda la infomacion ingresada
