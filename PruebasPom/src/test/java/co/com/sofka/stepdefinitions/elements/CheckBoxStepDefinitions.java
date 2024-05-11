@@ -15,6 +15,10 @@ public class CheckBoxStepDefinitions extends WebSetup {
 
 
     @Given("el usuario accede a la sección de casillas de verificación")
+<<<<<<< HEAD
+    public void elUsuarioAccedeALaSeccionDeCasillasDeVerificacion() {
+=======
+>>>>>>> 070c1d8af0f4b93da838ff5fa4e3950bc6a1f6a7
 
     public void elUsuarioAccedeALaSecciónDeCasillasDeVerificación() {
         try {
@@ -28,6 +32,10 @@ public class CheckBoxStepDefinitions extends WebSetup {
     }
 
     @When("expande selecciona y reduce las casillas de verificación")
+<<<<<<< HEAD
+    public void expandeSeleccionaYReduceLasCasillasDeVerificacion() {
+
+=======
     public void expandeSeleccionaYReduceLasCasillasDeVerificación() {
         try {
            checkRadioPage.expandirSeleccionarDisminuir();
@@ -36,9 +44,13 @@ public class CheckBoxStepDefinitions extends WebSetup {
             quiteDrive();
             Assertions.fail("Fallo en la manipulacion de las cajas: " + e.getMessage());
         }
+>>>>>>> 070c1d8af0f4b93da838ff5fa4e3950bc6a1f6a7
     }
 
     @Then("debería ver un mensaje con la cantidad de casillas seleccionadas")
+<<<<<<< HEAD
+    public void deberiaVerUnMensajeConLaCantidadDeCasillasSeleccionadas() {
+=======
     public void deberíaVerUnMensajeConLaCantidadDeCasillasSeleccionadas() {
         try {
             String mensajeActual = checkRadioPage.obtenerCheckBoxMensaje();
@@ -51,5 +63,6 @@ public class CheckBoxStepDefinitions extends WebSetup {
         finally {
             quiteDrive();
         }
+>>>>>>> 070c1d8af0f4b93da838ff5fa4e3950bc6a1f6a7
     }
 }
