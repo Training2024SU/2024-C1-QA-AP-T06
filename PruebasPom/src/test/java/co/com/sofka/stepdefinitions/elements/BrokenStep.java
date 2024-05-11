@@ -1,6 +1,8 @@
 package co.com.sofka.stepdefinitions.elements;
 
+import co.com.sofka.page.AlertsWindowsPage;
 import co.com.sofka.page.BrokenPage;
+import co.com.sofka.page.PageFactoryMain;
 import co.com.sofka.setup.WebSetup;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -16,14 +18,28 @@ public class BrokenStep extends WebSetup {
 
     @When("el usuario esta ubicado en la seccion de links e imagenes")
     public void elUsuarioEstaUbicadoEnLaSeccionDeLinksEImagenes() {
-        brokenPage = new BrokenPage(driver);
-        brokenPage.abrirBrokenLinksImages();
+        try {
+            brokenPage = new BrokenPage(driver);
+            brokenPage.abrirBrokenLinksImages();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            quiteDrive();
+            Assertions.fail();
+        }
+
     }
 
     @When("el usuario selecciona una imagen o link")
     public void elUsuarioSeleccionaUnaImagenOLink() {
-        brokenPage = new BrokenPage(driver);
-        brokenPage.goToLinkValido();
+        try {
+            brokenPage = new BrokenPage(driver);
+            brokenPage.goToLinkValido();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            quiteDrive();
+            Assertions.fail();
+        }
+
     }
 
     @Then("deberia de mostrar su correspondiente alerta como buena o rota")
@@ -40,8 +56,14 @@ public class BrokenStep extends WebSetup {
 
     @When("el usuario selecciona un link invalido")
     public void elUsuarioSeleccionaUnLinkInvalido() {
-        brokenPage = new BrokenPage(driver);
-        brokenPage.goToLinkInvalido();
+        try {
+            brokenPage = new BrokenPage(driver);
+            brokenPage.goToLinkInvalido();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            quiteDrive();
+            Assertions.fail();
+        }
     }
     @Then("deberia de mostrar su correspondiente alerta de link invalido")
     public void deberiaDeMostrarSuCorrespondienteAlertaDeLinkInvalido() {
@@ -58,8 +80,14 @@ public class BrokenStep extends WebSetup {
 
     @When("el usuario selecciona un puede ver una imagen valida")
     public void elUsuarioSeleccionaUnPuedeVerUnaImagenValida() {
-        brokenPage = new BrokenPage(driver);
-        brokenPage.goToImagenValido();
+        try {
+            brokenPage = new BrokenPage(driver);
+            brokenPage.goToImagenValido();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            quiteDrive();
+            Assertions.fail();
+        }
 
     }
     @Then("deberia de mostrar su correspondiente alerta de imagen valida")
@@ -77,8 +105,15 @@ public class BrokenStep extends WebSetup {
     }
     @When("el usuario selecciona un no puede ver una imagen valida")
     public void elUsuarioSeleccionaUnNoPuedeVerUnaImagenValida() {
-        brokenPage = new BrokenPage(driver);
-        brokenPage.goToImagenInvalido();
+        try {
+            brokenPage = new BrokenPage(driver);
+            brokenPage.goToImagenInvalido();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            quiteDrive();
+            Assertions.fail();
+        }
+
 
     }
     @Then("deberia de mostrar su correspondiente alerta de imagen invalido")

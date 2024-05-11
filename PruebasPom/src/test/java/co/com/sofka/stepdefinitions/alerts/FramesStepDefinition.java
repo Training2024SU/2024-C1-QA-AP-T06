@@ -51,7 +51,7 @@ public class FramesStepDefinition extends WebSetup {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             Assertions.fail();
-        }finally {
+        } finally {
             quiteDrive();
         }
     }
@@ -64,8 +64,9 @@ public class FramesStepDefinition extends WebSetup {
             System.out.println(mensajeActual);
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            quiteDrive();
             Assertions.fail();
+        } finally {
+            quiteDrive();
         }
     }
 }
