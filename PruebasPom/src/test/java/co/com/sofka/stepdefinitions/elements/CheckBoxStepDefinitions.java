@@ -15,7 +15,7 @@ public class CheckBoxStepDefinitions extends WebSetup {
 
 
     @Given("el usuario accede a la sección de casillas de verificación")
-    public void elUsuarioAccedeALaSecciónDeCasillasDeVerificación() {
+    public void elUsuarioAccedeALaSeccionDeCasillasDeVerificacion() {
         try {
             checkRadioPage = new CheckRadioPage(driver);
             checkRadioPage.seleccionarOpcionCheckBox();

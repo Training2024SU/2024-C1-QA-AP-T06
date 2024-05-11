@@ -1,3 +1,4 @@
+
 package co.com.sofka.stepdefinitions.elements;
 
 import co.com.sofka.page.CheckRadioPage;
@@ -16,7 +17,7 @@ public class RadioBotonStepDefinitions extends WebSetup {
     CheckRadioPage checkRadioPage;
 
     @Given("el usuario accede a la sección de botones de radio")
-    public void elUsuarioAccedeALaSecciónDeBotonesDeRadio() {
+    public void elUsuarioAccedeALaSeccionDeBotonesDeRadio() {
         try {
             checkRadioPage = new CheckRadioPage(driver);
             checkRadioPage.seleccionarOpcionRadioButton();
@@ -26,7 +27,6 @@ public class RadioBotonStepDefinitions extends WebSetup {
             Assertions.fail("Fallo al intentar inicializar la pagina: " + e.getMessage());
         }
     }
-
     @When("selecciona las opciones de radio")
     public void seleccionaLasOpcionesDeRadio() {
         try {
