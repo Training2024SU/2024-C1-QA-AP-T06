@@ -8,8 +8,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
 
-import static co.com.sofka.Constantes.VALOR_AQUA;
-import static co.com.sofka.Constantes.VALOR_BLACK;
+import static co.com.sofka.Constantes.*;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -31,6 +30,8 @@ public class MenuStepDefinition extends WebSetup {
     @When("quiere navegar por el menu")
     public void quiereNavegarPorElMenu() {
         try {
+            //Para que el codigo funcione es indispensable que
+            // No se mueva el mouse dentro de la pantalla
             reactionWidgets.navegarPorMenu();
             System.err.println("Se ejecuta la funcionalidad del Menu");
         } catch (Exception e) {
@@ -43,7 +44,7 @@ public class MenuStepDefinition extends WebSetup {
     @Then("deberia visualizarse el menu correcto")
     public void deberiaVisualizarseElMenuCorrecto() {
         try {
-
+            assertThat(reactionWidgets.validarMenu(),containsString(VALOR_MENU));
             System.err.println("Asercion Menu");
         } catch (Exception e) {
             System.err.println(e.getMessage());

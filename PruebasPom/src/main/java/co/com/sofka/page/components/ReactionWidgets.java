@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -109,14 +110,17 @@ public class ReactionWidgets extends FunctionsCommons {
         //Ahora, finalmente, se muestra la lista de menús deseada de la que hay que seleccionar la opción deseada.
 
         //Luego selecciona intercaladamente 'sub sub menu' del sub menu
-        for (int i = 0; i < 30; i++) {
-            wait.until(d -> subSubMenuOption1.isDisplayed());
-            actions.moveToElement(subSubMenuOption1).perform();
-            wait.until(d -> subSubMenuOption2.isDisplayed());
-            actions.moveToElement(subSubMenuOption2).perform();
-        }
+        wait.until(d -> subSubMenuOption1.isDisplayed());
+        actions.moveToElement(subSubMenuOption1).perform();
+        wait.until(d -> subSubMenuOption2.isDisplayed());
+        actions.moveToElement(subSubMenuOption2).perform();
+
 
         System.out.println("Selected 'Sub Sub Item 1' from Menu");
         System.out.println("Selected 'Sub Sub Item 2' from Menu");
+    }
+
+    public String validarMenu() {
+        return getText(subSubMenuOption2);
     }
 }
