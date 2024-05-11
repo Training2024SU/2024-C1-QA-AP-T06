@@ -16,7 +16,7 @@ public class AccordianStepDefinition extends WebSetup {
     ReactionWidgets reactionWidgets = new ReactionWidgets(driver);
 
     @Given("el usuario se dirige a la página widget Accordian")
-    public void elUsuarioSeDirigeALaPáginaWidgetAccordian() {
+    public void elUsuarioSeDirigeALaPaginaWidgetAccordian() {
         try {
             WidgetsPage widgetsPage = new WidgetsPage(driver);
             widgetsPage.navegarAccordian();

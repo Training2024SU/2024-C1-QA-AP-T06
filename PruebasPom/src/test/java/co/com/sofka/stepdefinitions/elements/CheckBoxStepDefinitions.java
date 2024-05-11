@@ -27,7 +27,7 @@ public class CheckBoxStepDefinitions extends WebSetup {
     }
 
     @When("expande selecciona y reduce las casillas de verificación")
-    public void expandeSeleccionaYReduceLasCasillasDeVerificación() {
+    public void expandeSeleccionaYReduceLasCasillasDeVerificacion() {
         try {
            checkRadioPage.expandirSeleccionarDisminuir();
         } catch (Exception e) {

@@ -217,4 +217,17 @@ public class FunctionsCommons {
     public int getElementHeight(WebElement element) {
         return element.getSize().getHeight();
     }
+
+    protected void doubleClick(By locator) {
+        WebElement element = driver.findElement(locator);
+        Actions actions = new Actions(driver);
+        actions.doubleClick(element).perform();
+    }
+
+    protected void rightClick(By locator) {
+        WebElement element = driver.findElement(locator);
+        Actions actions = new Actions(driver);
+        actions.contextClick(element).perform();
+    }
 }
+
