@@ -15,13 +15,7 @@ public class CheckBoxStepDefinitions extends WebSetup {
 
 
     @Given("el usuario accede a la sección de casillas de verificación")
-<<<<<<< HEAD
-    public void elUsuarioAccedeALaSeccionDeCasillasDeVerificacion() {
-        checkRadioPage = new CheckRadioPage(driver);
-        checkRadioPage.seleccionarOpcionCheckBox();
 
-
-=======
     public void elUsuarioAccedeALaSecciónDeCasillasDeVerificación() {
         try {
             checkRadioPage = new CheckRadioPage(driver);
@@ -31,7 +25,6 @@ public class CheckBoxStepDefinitions extends WebSetup {
             quiteDrive();
             Assertions.fail("Falló al inicializar la página de casillas de verificación: " + e.getMessage());
         }
->>>>>>> solucion
     }
 
     @When("expande selecciona y reduce las casillas de verificación")
