@@ -11,6 +11,10 @@ public class AlertsWindowsPage extends FunctionsCommons {
     @CacheLookup
     @FindBy(xpath = "//span[text()='Frames']")
     private WebElement frames;
+    @CacheLookup
+    @FindBy(xpath = "//span[text()='Nested Frames']")
+    private WebElement nestedFrames;
+
 
     public AlertsWindowsPage(WebDriver driver) {
         super(driver);
@@ -19,5 +23,9 @@ public class AlertsWindowsPage extends FunctionsCommons {
     public void irAFrames() {
         scrollTo(frames);
         clickSelection(frames);
+    }
+    public void irANestedFrames() {
+        scrollTo(nestedFrames);
+        clickSelection(nestedFrames);
     }
 }

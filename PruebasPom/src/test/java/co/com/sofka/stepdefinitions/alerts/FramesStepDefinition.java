@@ -22,7 +22,7 @@ public class FramesStepDefinition extends WebSetup {
             generalSetup(driverType);
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            //quiteDriver();
+            quiteDrive();
             Assertions.fail();
         }
     }
@@ -36,7 +36,7 @@ public class FramesStepDefinition extends WebSetup {
             alertsWindowsPage.irAFrames();
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            //quiteDriver();
+            quiteDrive();
             Assertions.fail();
         }
     }
@@ -50,8 +50,9 @@ public class FramesStepDefinition extends WebSetup {
             framesPage.switchToFrame2();
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            //quiteDriver();
             Assertions.fail();
+        }finally {
+            quiteDrive();
         }
     }
 
@@ -63,7 +64,7 @@ public class FramesStepDefinition extends WebSetup {
             System.out.println(mensajeActual);
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            //quiteDriver();
+            quiteDrive();
             Assertions.fail();
         }
     }
