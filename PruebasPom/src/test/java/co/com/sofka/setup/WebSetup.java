@@ -42,7 +42,6 @@ public class WebSetup {
         FirefoxProfile fp = new FirefoxProfile();
         fp.setPreference("browser.privatebrowsing.autostart", true);
         fo.setProfile(fp);
-        fo.addArguments("-headless");
         driver = new FirefoxDriver(fo);
     }
 
