@@ -9,8 +9,8 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "co.com.sofka.stepdefinitions",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        tags = "@RevertDraggable",
-        publish = true
+        publish = true,
+        tags = "@BottonClick"
 )
-public class ServicesTest {
+public class Runner {
 }

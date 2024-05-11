@@ -94,6 +94,7 @@ Feature: Elements DemoQA
     Then deberia de mostrar su correspondiente alerta de imagen invalido
 
 
+
     @BottonClick
   Scenario: Prueba de click en el boton
     When hace click en el boton
@@ -110,3 +111,10 @@ Feature: Elements DemoQA
   Scenario: Prueba de doble click en el boton
     When hace doble click en el boton
     Then deberia ver el mensaje de doble click
+
+  @DavidTearDown
+  Scenario: Propiedades dinamicas
+    When El usuario accede a la opción de propiedades dinámicas
+    And Espera a que las propiedades de los elementos cambien
+    Then debería ver los elementos actualizarse
+

@@ -1,6 +1,8 @@
 package co.com.sofka.stepdefinitions.elements;
 
 import co.com.sofka.model.TextboxModel;
+import co.com.sofka.page.AlertsWindowsPage;
+import co.com.sofka.page.PageFactoryMain;
 import co.com.sofka.page.function.TextboxPage;
 import co.com.sofka.setup.WebSetup;
 import io.cucumber.datatable.DataTable;
@@ -8,6 +10,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 import java.util.List;
 import java.util.Map;
@@ -20,9 +23,14 @@ public class TextboxStep extends WebSetup {
 
     @When("ingresa a la pagina del formulario")
     public void ingresaALaPaginaDelFormulario() {
-        textboxPage = new TextboxPage(driver);
-        textboxPage.goToTB();
-
+        try {
+            textboxPage = new TextboxPage(driver);
+            textboxPage.goToTB();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            quiteDrive();
+            Assertions.fail();
+        }
     }
 
     @When("El usuario llena el formulario con la siguiente informacion:")

@@ -7,6 +7,7 @@ import co.com.sofka.setup.WebSetup;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 import static co.com.sofka.Constantes.MENSAJE_PESTANIA_VENTANA;
 import static co.com.sofka.Constantes.MENSAJE_VENTANA;
@@ -19,46 +20,90 @@ public class BrowserWindowsSteps extends WebSetup {
 
     @Given("El usuario esta en la pagina de ventanas de navegador {int}")
     public void elUsuarioEstaEnLaPaginaDeVentanasDeNavegador(int browser) {
-        generalSetup(browser);
-        PageFactoryMain pageFactoryMain = new PageFactoryMain(driver);
-        pageFactoryMain.navegarAAlertas();
-        AlertsFrameWindowsPage alertsFrameWindowsPage = new AlertsFrameWindowsPage(driver);
-        alertsFrameWindowsPage.navegarABrowserWindowsPage();
-        browserWindowsPage = new BrowserWindowsPage(driver);
+        try {
+            generalSetup(browser);
+            PageFactoryMain pageFactoryMain = new PageFactoryMain(driver);
+            pageFactoryMain.navegarAAlertas();
+            AlertsFrameWindowsPage alertsFrameWindowsPage = new AlertsFrameWindowsPage(driver);
+            alertsFrameWindowsPage.navegarABrowserWindowsPage();
+            browserWindowsPage = new BrowserWindowsPage(driver);
+        } catch (Exception e) {
+            quiteDrive();
+            Assert.fail();
+        }
+
     }
 
     @When("abre una nueva pestaña")
     public void abreUnaNuevaPestana() {
-        browserWindowsPage.abrirNuevaPestania();
+        try {
+            browserWindowsPage.abrirNuevaPestania();
+        } catch (Exception e) {
+            quiteDrive();
+            Assert.fail();
+        }
     }
 
     @Then("debería ver una nueva pestaña con un mensaje")
     public void deberiaVerUnaNuevaPestanaConUnMensaje() {
-        assertThat(MENSAJE_PESTANIA_VENTANA,
-                is(equalTo(browserWindowsPage.obtenerMensajeDePestania())));
+        try {
+            assertThat(MENSAJE_PESTANIA_VENTANA,
+                    is(equalTo(browserWindowsPage.obtenerMensajeDePestania())));
+        } catch (Exception e) {
+            Assert.fail();
+        } finally {
+            quiteDrive();
+        }
+
     }
 
     @When("abre una nueva ventana")
     public void abreUnaNuevaVentana() {
-        browserWindowsPage.abrirNuevaVentana();
+        try {
+            browserWindowsPage.abrirNuevaVentana();
+        } catch (Exception e) {
+            quiteDrive();
+            Assert.fail();
+        }
+
     }
 
     @Then("debería ver una nueva ventana con un mensaje")
     public void deberiaVerUnaNuevaVentanaConUnMensaje() {
-        assertThat(MENSAJE_PESTANIA_VENTANA,
-                is(equalTo(browserWindowsPage.obtenerMensajeDeVentana())));
+        try {
+            assertThat(MENSAJE_PESTANIA_VENTANA,
+                    is(equalTo(browserWindowsPage.obtenerMensajeDeVentana())));
+        } catch (Exception e) {
+            Assert.fail();
+        }finally {
+            quiteDrive();
+        }
+
     }
 
     @When("abre una nueva ventana de mensaje")
     public void abreUnaNuevaVentanaDeMensaje() {
-        browserWindowsPage.abrirNuevaVentanaDeMensaje();
+        try {
+            browserWindowsPage.abrirNuevaVentanaDeMensaje();
+        } catch (Exception e) {
+            quiteDrive();
+            Assert.fail();
+        }
+
     }
 
     @Then("debería ver una nueva ventana de mensaje")
     public void deberiaVerUnaNuevaVentanaDeMensaje() {
-        assertThat(
-                MENSAJE_VENTANA,
-                is(equalTo(browserWindowsPage.obtenerMensajeDeNuevaVentanaDeMensaje()))
-        );
+        try {
+            assertThat(
+                    MENSAJE_VENTANA,
+                    is(equalTo(browserWindowsPage.obtenerMensajeDeNuevaVentanaDeMensaje()))
+            );
+        } catch (Exception e) {
+            Assert.fail();
+        }finally {
+            quiteDrive();
+        }
+
     }
 }
