@@ -3,6 +3,7 @@ Feature: Elements DemoQA
   Background:
     Given El usuario esta en la pagina web de elements demoqa 1
 
+
   @webtables
   Scenario Outline: agregar, actualizar y borrar tablas
     When usa el boton de add
@@ -35,5 +36,18 @@ Feature: Elements DemoQA
       | Francisco Pacho | pacho@gmail.com | Dirección actual 1 | Dirección permanente 1 |
       | Johan Lucas     | johan@gmail.com | Dirección actual 2 | Dirección permanente 2 |
       | Juan Bautista   | juan@gmail.com  | Dirección actual 3 | Dirección permanente 3 |
+
+  @CheckBox
+  Scenario: Interacción con casillas de verificación
+    Given el usuario accede a la sección de casillas de verificación
+    When expande selecciona y reduce las casillas de verificación
+    Then debería ver un mensaje con la cantidad de casillas seleccionadas
+
+  @Radio
+  Scenario: Interacción con radio button
+    Given el usuario accede a la sección de botones de radio
+    When selecciona las opciones de radio
+    Then debería ver un mensaje correspondiente al boton de radio seleccionado
+
 
 
