@@ -1,6 +1,6 @@
 package co.com.sofka.stepdefinitions.bookstore;
 
-import co.com.sofka.model.UserRegisterModel;
+import co.com.sofka.model.UserRegisterAPIModel;
 import co.com.sofka.setup.ServiceSetup;
 import com.google.gson.Gson;
 import io.cucumber.java.en.Then;
@@ -23,8 +23,8 @@ public class BookStoreGenerateTokeSD extends ServiceSetup {
         Gson gson = new Gson();
         request = RestAssured.given();
         String name = userName + faker.bothify("#####");
-        UserRegisterModel userRegisterModel = new UserRegisterModel(name, password);
-        jsonModel = gson.toJson(userRegisterModel);
+        UserRegisterAPIModel userRegisterAPIModel = new UserRegisterAPIModel(name, password);
+        jsonModel = gson.toJson(userRegisterAPIModel);
         response = request
                 .header("Content-Type", "application/json")
                 .body(jsonModel)

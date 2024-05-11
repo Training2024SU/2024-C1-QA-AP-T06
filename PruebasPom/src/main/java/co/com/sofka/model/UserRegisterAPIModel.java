@@ -1,10 +1,10 @@
 package co.com.sofka.model;
 
-public class UserRegisterModel {
+public class UserRegisterAPIModel {
     private String userName;
     private String password;
 
-    public UserRegisterModel(String userName, String password) {
+    public UserRegisterAPIModel(String userName, String password) {
         this.userName = userName;
         this.password = password;
     }

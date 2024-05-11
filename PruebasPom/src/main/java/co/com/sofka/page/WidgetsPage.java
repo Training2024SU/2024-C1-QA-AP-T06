@@ -18,6 +18,10 @@ public class WidgetsPage extends FunctionsCommons {
     @FindBy(xpath = "//span[text()='Menu']/..")
     WebElement menu;
 
+    @CacheLookup
+    @FindBy(xpath = "//span[text()='Slider']")
+    private WebElement botonSlider;
+
     public WidgetsPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
@@ -43,4 +47,8 @@ public class WidgetsPage extends FunctionsCommons {
         clickSelection(menu);
     }
 
+    public void navegarASlider() {
+        scrollTo(botonSlider);
+        clickSelection(botonSlider);
+    }
 }

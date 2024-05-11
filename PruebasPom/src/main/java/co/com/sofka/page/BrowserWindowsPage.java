@@ -31,14 +31,17 @@ public class BrowserWindowsPage extends FunctionsCommons {
     }
 
     public void abrirNuevaPestania() {
+        scrollTo(tabButton);
         tabButton.click();
     }
 
     public void abrirNuevaVentana() {
+        scrollTo(windowButton);
         windowButton.click();
     }
 
     public void abrirNuevaVentanaDeMensaje() {
+        scrollTo(messageWindowButton);
         messageWindowButton.click();
     }
 
