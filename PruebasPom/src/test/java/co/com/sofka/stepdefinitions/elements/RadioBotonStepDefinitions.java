@@ -10,13 +10,9 @@ public class RadioBotonStepDefinitions extends WebSetup {
     CheckRadioPage checkRadioPage;
 
     @Given("el usuario accede a la sección de botones de radio")
-<<<<<<< HEAD
     public void elUsuarioAccedeALaSeccionDeBotonesDeRadio() {
-=======
-    public void elUsuarioAccedeALaSecciónDeBotonesDeRadio() {
         checkRadioPage = new CheckRadioPage(driver);
         checkRadioPage.seleccionarOpcionRadioButton();
->>>>>>> solucion
 
     }
     @When("selecciona las opciones de radio")
