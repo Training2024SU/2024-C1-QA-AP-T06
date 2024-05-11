@@ -25,4 +25,11 @@ public class Constantes {
 
     public static final String MSN_GRACIAS = "Thanks for submitting the form";
 
+    public static final int BOXLIMIT_WIDHT = 500;
+
+    public static final int BOXLIMIT_HEIGHT = 300;
+    public static final int BOXNOTLIMIT_WIDHT = 550;
+    public static final int BOXNOTLIMIT_HEIGHT = 250;
+
+
 }
