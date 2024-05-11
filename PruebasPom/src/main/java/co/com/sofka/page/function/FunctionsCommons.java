@@ -50,9 +50,9 @@ public class FunctionsCommons {
         jse.executeScript("arguments[0].scrollIntoView();", element);
     }
 
-    protected void scrollTo (By locator){
+    protected void scrollTo(By locator){
         JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript("arguments[0].scrollIntoView();",driver.findElement(locator));
+        jse.executeScript("arguments[0].scrollIntoView();", driver.findElement(locator));
     }
 
     protected String getText(By locator) {
@@ -71,45 +71,55 @@ public class FunctionsCommons {
         return driver.findElements(locator);
     }
 
-    protected void limpiarCampo(By locator){driver.findElement(locator).clear();}
+    protected void limpiarCampo(By locator) {
+        driver.findElement(locator).clear();
+    }
 
-    protected void limpiarCampo(WebElement locator){locator.clear();}
+    protected void limpiarCampo(WebElement locator) {
+        locator.clear();
+    }
 
     public void waitSeconds(int seconds) {
-        //NO FUNCIONA CON MODULOS WEBS CON ALERTAS
+        // NO FUNCIONA CON MÓDULOS WEBS CON ALERTAS
         Wait<WebDriver> wait =
                 new FluentWait<>(driver)
                         .withTimeout(Duration.ofSeconds(seconds))
                         .pollingEvery(Duration.ofMillis(300))
                         .ignoring(ElementNotInteractableException.class);
-        try{
+        try {
             wait.until(ExpectedConditions.alertIsPresent());
-        }catch (Exception e){
+        } catch (Exception e) {
+            // Manejar la excepción, si es necesario
         }
     }
+
     protected void waitToBeVisible(WebElement webElement) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(webElement));
     }
-    public void switchToIframe(WebElement locator){
+
+    public void switchToIframe(WebElement locator) {
         driver.switchTo().frame(locator);
     }
-    public void switchToPagina(WebElement locator){
+
+    public void switchToPagina(WebElement locator) {
         driver.switchTo().defaultContent();
     }
-    public void moverElementoEnEjeX(WebElement locator, int pixeles){
+
+    public void moverElementoEnEjeX(WebElement locator, int pixeles) {
         Actions actions = new Actions(driver);
         actions.clickAndHold(locator).moveByOffset(pixeles, 0).release().perform();
     }
 
-    protected void typeKey(WebElement webElement, Keys value ){
+    protected void typeKey(WebElement webElement, Keys value) {
         webElement.sendKeys(value);
     }
-    protected void typeKey(By locator, Keys value ){
+
+    protected void typeKey(By locator, Keys value) {
         driver.findElement(locator).sendKeys(value);
     }
 
-    protected void clearInput(By locator ){
+    protected void clearInput(By locator) {
         driver.findElement(locator).clear();
     }
 
@@ -117,4 +127,34 @@ public class FunctionsCommons {
         webElement.clear();
     }
 
+    protected void clickHoldAndMoveVertically(WebElement element, int yOffset) {
+        Actions actions = new Actions(driver);
+        actions.clickAndHold(element)
+                .moveByOffset(0, yOffset)
+                .release()
+                .perform();
+    }
+
+    protected void moveToElement(WebElement webElement) {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(webElement, webElement.getLocation().getX(), webElement.getLocation().getY()).perform();
+    }
+
+    protected void clickAndHold(WebElement webElement) {
+        Actions actions = new Actions(driver);
+        actions.clickAndHold(webElement).perform();
+    }
+
+    protected void moveByOffset(WebElement webElement, int xOffset, int yOffset) {
+        Actions actions = new Actions(driver);
+        actions.clickAndHold(webElement).moveByOffset(xOffset, yOffset).release().build().perform();
+    }
+
+    public int getElementWidth(WebElement element) {
+        return element.getSize().getWidth();
+    }
+
+    public int getElementHeight(WebElement element) {
+        return element.getSize().getHeight();
+    }
 }
