@@ -1,13 +1,22 @@
 package co.com.sofka.stepdefinitions.elements;
 
+import co.com.sofka.page.CheckRadioPage;
+import co.com.sofka.setup.WebSetup;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class RadioBotonStepDefinitions {
+public class RadioBotonStepDefinitions extends WebSetup {
+    CheckRadioPage checkRadioPage;
 
     @Given("el usuario accede a la sección de botones de radio")
+<<<<<<< HEAD
+    public void elUsuarioAccedeALaSeccionDeBotonesDeRadio() {
+=======
     public void elUsuarioAccedeALaSecciónDeBotonesDeRadio() {
+        checkRadioPage = new CheckRadioPage(driver);
+        checkRadioPage.seleccionarOpcionRadioButton();
+>>>>>>> solucion
 
     }
     @When("selecciona las opciones de radio")
