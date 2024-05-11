@@ -1,6 +1,7 @@
 package co.com.sofka.page.function;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
@@ -89,5 +90,25 @@ public class FunctionsCommons {
     protected void waitToBeVisible(WebElement webElement) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(webElement));
+    }
+
+    protected void clickHolding(By draggable, By droppable) {
+        WebElement sourceElement = driver.findElement(draggable);
+        WebElement targetElement = driver.findElement(droppable);
+        Point targetLocation = targetElement.getLocation();
+        int targetX = targetLocation.getX();
+        int targetY = targetLocation.getY();
+        int xOffset = targetX - sourceElement.getLocation().getX()+10;
+        int yOffset = targetY - sourceElement.getLocation().getY()+10;
+
+        new Actions(driver)
+                .clickAndHold(sourceElement)
+                .moveByOffset(xOffset, yOffset)
+                .release()
+                .build()
+                .perform();
+
+        //new Actions(driver).dragAndDrop(sourceElement,targetElement).perform();
+
     }
 }
