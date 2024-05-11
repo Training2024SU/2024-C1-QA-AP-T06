@@ -12,13 +12,16 @@ Feature: filtrar y buscar libros
       | "Learning JavaScript Design Patterns" | "Addy Osmani"  |
       | "You Don't Know JS"                   | "Kyle Simpson" |
 
-    @authentication
+  @authentication
   Scenario Outline: Registro e inicio de sesion exitoso
-    When el usuario ingresa sus crendenciales de registro user "<user>" y la contrasena "<contrasena>"
+    When el usuario ingresa las siguentes crendeciasles para registro
+      | nombre   | apellido   | user   | contrasena   |
+      | <nombre> | <apellido> | <user> | <contrasena> |
     And ingresa nuevamente sus credenciales para iniciar sesion
     Then deberia estar dentro de la pagina como usuario registrado
     Examples:
-      | user                | contrasena        |
-      | johan CifuentesAPI  | johan123$$ABC     |
-      | jorge RodriguezAPI  | jorge123$$ABC     |
-      | Pacho ValenzuelaAPI | pacho123$$ABCCool |
+      | nombre | apellido  | user                | contrasena    |
+      | Johan  | cifuentes | johan CifuentesPAGE | johan123$$ABC |
+      #| pacho  | valenzuela | Pacho ValenzuelaPAGE | pacho123$$ABC  |
+      #| jorge  | rodriguez  | jorge RodriguezPAGE  | jorege123$$ABC |
+

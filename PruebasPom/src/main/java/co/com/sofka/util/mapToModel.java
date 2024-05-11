@@ -1,6 +1,7 @@
 package co.com.sofka.util;
 
 import co.com.sofka.model.BookModel;
+import co.com.sofka.model.UserRegisterPageModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,5 +19,18 @@ public class mapToModel {
             bookModels.add(bookModel);
         });
         return bookModels;
+    }
+
+    public static List<UserRegisterPageModel> mapToUserList(List<Map<String, String>> userModelList){
+        List<UserRegisterPageModel> userRegisterPageModels = new ArrayList<>();
+        userModelList.forEach(model -> {
+            UserRegisterPageModel userRegisterPageModel = new UserRegisterPageModel();
+            userRegisterPageModel.setName(model.get("nombre"));
+            userRegisterPageModel.setLastname(model.get("apellido"));
+            userRegisterPageModel.setUsername(model.get("user"));
+            userRegisterPageModel.setPassword(model.get("contrasena"));
+            userRegisterPageModels.add(userRegisterPageModel);
+        });
+        return userRegisterPageModels;
     }
 }

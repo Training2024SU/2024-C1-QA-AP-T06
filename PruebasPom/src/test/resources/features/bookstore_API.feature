@@ -30,9 +30,6 @@ Feature: Books Store
       | 9781449331818 | Learning JavaScript Design Patterns       |
       | 9781449337711 | Designing Evolvable Web APIs with ASP.NET |
 
-  # ingresar usuarios que no existen
-  # ya que quedan guardados en la base de datos
-
   @servicio
   Scenario Outline: Crear usuario utilizando servicio POST de DemoQA
     When realiza la peticion POST correctamente ingresando el usuario "<user>" y la contrasena "<contrasena>"
@@ -57,6 +54,37 @@ Feature: Books Store
       | Juan JoseAPI     | juan1111$$ABC      |
       | David BoneloAPI  | david2222$$ABC     |
       | Julio VasquezAPI | julio3333$$ABCCool |
+
+  @servicio
+  Scenario Outline: Intento de eliminar cuenta fallido por autorizacion usando metodo DELETE
+    When el usuario hace uso del servicio delete e ingresa el siguiente id "<id>"
+    Then deberia recibir un mensaje de usuario no autorizado
+    And deberia recibir una respuesta fallida con codigo 401
+    Examples:
+      | id       |
+      | abcde    |
+      | effgsdas |
+
+  @servicio
+  Scenario Outline: Intento de eliminar libro fallido por autorizacion usando metodo DELETE
+    When el usuario "<idUsuario>" intenta eliminar el libro con isbn "<isbn>"
+    Then deberia recibir un mensaje de usuario no autorizado
+    And deberia recibir una respuesta fallida con codigo 401
+    Examples:
+      | idUsuario     | isbn         |
+      | usuario123    | isbnFallido  |
+      | usuarioacbd12 | isbnFallido2 |
+
+  @servicio
+  Scenario Outline: Intento de actualizar libro fallido por autorizacion usando metodo PUT
+    When el usuario "<idUsuario>" intenta actualizar el libro con isbn "<isbn>" ingresando un nuevo isbn "<newIsbn>"
+    Then deberia recibir un mensaje de usuario no autorizado
+    And deberia recibir una respuesta fallida con codigo 401
+    Examples:
+      | idUsuario     | isbn         | newIsbn        |
+      | usuario123    | isbnFallido  | newisbnFallido |
+      | usuarioacbd12 | isbnFallido2 | newisbnFallido |
+
 
 
 
