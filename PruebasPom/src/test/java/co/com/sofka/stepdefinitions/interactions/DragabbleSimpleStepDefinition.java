@@ -24,6 +24,8 @@ public class DragabbleSimpleStepDefinition extends WebSetup {
         } catch (Exception e) {
             System.err.println("Error al configurar el WebDriver: " + e.getMessage());
             e.printStackTrace();
+            quiteDrive();
+            Assertions.fail();
         }
     }
     @Given("selecciona la opcion Dragabble")
@@ -34,6 +36,8 @@ public class DragabbleSimpleStepDefinition extends WebSetup {
         } catch (Exception e) {
             System.err.println("Error al seleccionar la opción Dragabble: " + e.getMessage());
             e.printStackTrace();
+            quiteDrive();
+            Assertions.fail();
         }
     }
     @When("mueve el elemento")
@@ -49,6 +53,8 @@ public class DragabbleSimpleStepDefinition extends WebSetup {
         } catch (Exception e) {
             System.err.println("Error al mover el elemento: " + e.getMessage());
             e.printStackTrace();
+            quiteDrive();
+            Assertions.fail();
         }
     }
    @Then("deberia visualizarse en el lugar indicado")
@@ -60,7 +66,9 @@ public class DragabbleSimpleStepDefinition extends WebSetup {
        } catch (Exception e) {
            System.err.println("Error al verificar el movimiento del elemento: " + e.getMessage());
            e.printStackTrace();
+           Assertions.fail();
+       } finally {
+           quiteDrive();
        }
-       quiteDrive();
     }
 }
