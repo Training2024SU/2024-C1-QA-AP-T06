@@ -37,6 +37,7 @@ public class SelectablePage extends FunctionsCommons {
 
     public void seleccionarItem(WebElement item) {
         if (!estaSeleccionado(item)) {
+            scrollTo(item);
             item.click();
         }
     }
@@ -50,6 +51,7 @@ public class SelectablePage extends FunctionsCommons {
 
     public void desSeleccionarItem(WebElement element) {
         if (estaSeleccionado(element)) {
+            scrollTo(element);
             element.click();
         }
     }

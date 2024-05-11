@@ -9,7 +9,6 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 
-import static co.com.sofka.Constantes.MENSAJE_ESPERADO_CHECK_BOX;
 import static co.com.sofka.Constantes.MENSAJE_ESPERADO_RADIO;
 
 public class RadioBotonStepDefinitions extends WebSetup {

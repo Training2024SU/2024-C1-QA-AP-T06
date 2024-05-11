@@ -1,8 +1,22 @@
-Feature:
-
+Feature: prueba de los Widgets
+  yo como usuario de la página dmoqa
+  quiero poder utilizar los widgets
+  para disfrutar todos sus beneficios
 
   Background:
     Given El usuario esta en la pagina web de widgets demoqa 1
+
+  @accordian
+  Scenario: prueba de Accordian
+    Given el usuario se dirige a la página widget Accordian
+    When quiere utilizar el Accordian
+    Then deberia moverse automaticamente
+
+  @autocomplete
+  Scenario: prueba de Auto complete
+    Given el usuario se dirige a la página widget Auto complete
+    When quiere utilizar el auto complete "Aq" "bla"
+    Then deberia completarse automaticamente
 
   @tabs
   Scenario: interaccion con tabs
@@ -40,6 +54,12 @@ Feature:
       | texto                     |
       | El texto esta en el campo |
 
+  @menu
+  Scenario: prueba de la interaccion de menu
+    Given el usuario se dirige a la página widget menu
+    When quiere navegar por el menu
+    Then deberia visualizarse el menu correcto
+
   @selectMenu
   Scenario: llenar campos select menu
     When se dirije a la pagina select menu
@@ -53,3 +73,4 @@ Feature:
     And pausa la barra de progreso
     And la activa otra vez
     Then deberia terminar de cargar la barra completa y ver la palabra "Reset" y "100%"
+
