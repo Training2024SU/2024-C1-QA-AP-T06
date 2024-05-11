@@ -1,0 +1,14 @@
+
+g	java:S116"MRename this field "TB" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İ¤‘½úÿÿÿÿ
+m	java:S116"YRename this field "CAMPO_FULLNAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÊíŠ*
+p	java:S116"VRename this field "CAMPO_EMAIL" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÆÀÙşÿÿÿÿ
+r	java:S116"XRename this field "CAMPO_CURRENT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±‘¯ùÿÿÿÿ
+n	java:S116"YRename this field "CAMPO_PERMANET" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ë¶ş¢
+o	java:S116"URename this field "BTN_SUBMIT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üïíÜûÿÿÿÿ
+q	java:S116"WRename this field "BTN_ELEMENTS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âÙ™şÿÿÿÿ
+k	java:S116"VRename this field "BTN_TEXTBOX" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(µ‰¤œ
+p	java:S116"VRename this field "CAJA_SALIDA" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿äú›ûÿÿÿÿ
+Q	java:S1251"<This block of commented-out lines of code should be removed.(…í¤Ï
+P	java:S1253"<This block of commented-out lines of code should be removed.(ãî¡%
+K
+java:S1068"0Remove this unused "BTN_ELEMENTS" private field.(âÙ™şÿÿÿÿ
