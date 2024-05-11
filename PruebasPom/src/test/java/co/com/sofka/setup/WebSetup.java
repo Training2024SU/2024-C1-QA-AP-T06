@@ -32,7 +32,7 @@ public class WebSetup {
                 System.out.println(OPCION_VALIDA);
         }
         driver.get(DEMO_QA_URL);
-//        maximize();
+        maximize();
     }
 
     private void firefoxConfiguration() {
@@ -42,7 +42,7 @@ public class WebSetup {
         FirefoxProfile fp = new FirefoxProfile();
         fp.setPreference("browser.privatebrowsing.autostart", true);
         fo.setProfile(fp);
-//                fo.addArguments("-headless");
+        fo.addArguments("-headless");
         driver = new FirefoxDriver(fo);
     }
 

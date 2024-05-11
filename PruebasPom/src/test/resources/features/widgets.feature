@@ -53,3 +53,9 @@ Feature: prueba de los Widgets
     Examples:
       | texto                     |
       | El texto esta en el campo |
+
+  @menu
+  Scenario: prueba de la interaccion de menu
+    Given el usuario se dirige a la página widget menu
+    When quiere navegar por el menu
+    Then deberia visualizarse el menu correcto

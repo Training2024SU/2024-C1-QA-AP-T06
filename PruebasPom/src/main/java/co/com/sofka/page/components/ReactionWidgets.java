@@ -5,12 +5,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class ReactionWidgets extends FunctionsCommons {
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -35,6 +37,16 @@ public class ReactionWidgets extends FunctionsCommons {
     private WebElement singleColor;
     @FindBy(css = "div[class*='single-value']")
     private WebElement singleColorValue;
+
+    @FindBy(xpath = ".//a[contains(text(),'Main Item 2')]")
+    private WebElement menuOption;
+    @FindBy(xpath = ".//a[contains(text(),'SUB SUB LIST »')]")
+    private WebElement subMenuOption;
+    @FindBy(xpath = ".//a[contains(text(),'Sub Sub Item 1')]")
+    private WebElement subSubMenuOption1;
+    @FindBy(xpath = ".//a[contains(text(),'Sub Sub Item 2')]")
+    private WebElement subSubMenuOption2;
+
 
     // funciones
     public void selecionAccordian(int repeticiones) {
@@ -67,7 +79,8 @@ public class ReactionWidgets extends FunctionsCommons {
         multipleColor.sendKeys(Keys.TAB);
         typeInto(singleColor, color2);
         singleColor.sendKeys(Keys.TAB);
-        Thread.sleep(3000);
+        //Adding wait
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
     }
 
     public String validarMultiAutoComplete() {
@@ -76,5 +89,34 @@ public class ReactionWidgets extends FunctionsCommons {
 
     public String validarSingleAutoComplete() {
         return getText(singleColorValue);
+    }
+
+    public void navegarPorMenu() {
+        //Instanciar clase acción
+        Actions actions = new Actions(driver);
+        //Esperar a que el menu este mostrado
+        wait.until(d -> menuOption.isDisplayed());
+        //ir al WebElement 'Main' para realizar mouse hover
+        scrollTo(menuOption);
+        //Mouse hover menuOption 'Main'
+        actions.moveToElement(menuOption).perform();
+        System.out.println("Done Mouse hover on 'Main Item 2' from Menu");
+
+        //Ahora seleccione "Submenú" del submenú que se muestra al pasar el ratón por encima del "submenú".
+        //Mouse hover menuOption 'sub menu'
+        actions.moveToElement(subMenuOption).perform();
+        System.out.println("Done Mouse hover on 'SUB SUB LIST »' from Menu");
+        //Ahora, finalmente, se muestra la lista de menús deseada de la que hay que seleccionar la opción deseada.
+
+        //Luego selecciona intercaladamente 'sub sub menu' del sub menu
+        for (int i = 0; i < 30; i++) {
+            wait.until(d -> subSubMenuOption1.isDisplayed());
+            actions.moveToElement(subSubMenuOption1).perform();
+            wait.until(d -> subSubMenuOption2.isDisplayed());
+            actions.moveToElement(subSubMenuOption2).perform();
+        }
+
+        System.out.println("Selected 'Sub Sub Item 1' from Menu");
+        System.out.println("Selected 'Sub Sub Item 2' from Menu");
     }
 }

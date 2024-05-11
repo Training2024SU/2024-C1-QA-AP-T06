@@ -15,6 +15,8 @@ public class WidgetsPage extends FunctionsCommons {
     WebElement accordian;
     @FindBy(xpath = "//span[text()='Auto Complete']/..")
     WebElement autoComplete;
+    @FindBy(xpath = "//span[text()='Menu']/..")
+    WebElement menu;
 
     public WidgetsPage(WebDriver driver) {
         super(driver);
@@ -34,6 +36,11 @@ public class WidgetsPage extends FunctionsCommons {
     public void navegarAutoComplete() {
         scrollTo(autoComplete);
         clickSelection(autoComplete);
+    }
+
+    public void navegarMenu() {
+        scrollTo(menu);
+        clickSelection(menu);
     }
 
 }
