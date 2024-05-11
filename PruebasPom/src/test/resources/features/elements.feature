@@ -61,3 +61,38 @@ Feature: Elements DemoQA
     Then se deberia mostrar en pantalla un mensaje con la respuesta de la api
 
 
+@BrokenLinkImagen
+    @LinkValido
+    Scenario: Verificando funcionamientos de links y imagenes
+
+     When el usuario esta ubicado en la seccion de links e imagenes
+      And el usuario selecciona una imagen o link
+      Then deberia de mostrar su correspondiente alerta como buena o rota
+
+  @BrokenLinkImagen
+  @LinkInvalido
+  Scenario: Verificando funcionamientos de links y imagenes
+
+    When  el usuario esta ubicado en la seccion de links e imagenes
+    And el usuario selecciona un link invalido
+    Then deberia de mostrar su correspondiente alerta de link invalido
+
+  @BrokenLinkImagen
+  @ImagenValida
+  Scenario: Verificando funcionamientos de links y imagenes
+
+    When  el usuario esta ubicado en la seccion de links e imagenes
+    And el usuario selecciona un puede ver una imagen valida
+    Then deberia de mostrar su correspondiente alerta de imagen valida
+
+  @BrokenLinkImagen
+  @ImagenInvalida
+  Scenario: Verificando funcionamientos de links y imagenes
+
+    When  el usuario esta ubicado en la seccion de links e imagenes
+    And el usuario selecciona un no puede ver una imagen valida
+    Then deberia de mostrar su correspondiente alerta de imagen invalido
+
+
+
+
