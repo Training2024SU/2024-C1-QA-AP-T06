@@ -1,0 +1,88 @@
+package co.com.sofka.page;
+
+import co.com.sofka.page.function.FunctionsCommons;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.CacheLookup;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+public class SortablePage extends FunctionsCommons {
+
+
+
+    @FindBy(xpath = "//span[@class='text' and text()='Sortable']")
+    private WebElement sortableOption;
+
+    @FindBy(id = "demo-tab-grid")
+    private WebElement gridOption;
+
+    @FindBy(xpath = "//div[@class='grid-container mt-4']//div[contains(@class, 'list-group-item')]")
+    private List<WebElement> listItems;
+
+    @FindBy(id = "Ad.Plus-970x250-2")
+    private WebElement adContainer;
+
+    private List<String> originalOrder;
+
+    public SortablePage(WebDriver driver) {
+        super(driver);
+        PageFactory.initElements(driver, this);
+    }
+
+    public void getElements() {
+        clickSelection(sortableOption);
+        scrollTo(adContainer);
+        clickSelection(gridOption);
+    }
+
+    public void getOrganizedElements() {
+        scrollTo(adContainer);
+    }
+
+    public void organizeElements() {
+        int size = listItems.size();
+
+        // Generate random order of indices
+        List<Integer> indices = IntStream.range(0, size)
+                .boxed()
+                .collect(Collectors.toList());
+        Collections.shuffle(indices);
+
+        // Save original order of element texts
+        originalOrder = listItems.stream()
+                .map(WebElement::getText)
+                .collect(Collectors.toList());
+
+        // Rearrange elements according to new order of indices
+        List<WebElement> reorderedElements = indices.stream()
+                .map(listItems::get)
+                .collect(Collectors.toList());
+
+        // Simulate drag-and-drop using reordered elements
+        Actions actions = new Actions(driver);
+        IntStream.range(0, size)
+                .forEach(i -> actions.clickAndHold(listItems.get(i))
+                        .moveToElement(reorderedElements.get(i))
+                        .release()
+                        .perform());
+    }
+
+
+    public boolean compareLists() {
+        for (int i = 0; i < listItems.size(); i++) {
+            String element = originalOrder.get(i);
+            WebElement organizedElement = listItems.get(i);
+            if (!element.equals(organizedElement.getText())) {
+                return true; // Comparison fails if a difference is found
+            }
+        }
+        return false; // All comparisons are equal
+    }
+}
