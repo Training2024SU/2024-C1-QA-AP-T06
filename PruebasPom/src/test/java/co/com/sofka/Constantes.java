@@ -15,6 +15,9 @@ public class Constantes {
     public static final String PAGINA_STATUS500 ="https://the-internet.herokuapp.com/status_codes/500";
 
 
+
+
+
     public static final String CREATED = "201";
     public static final String NO_CONTENT = "204";
     public static final String MOVED = "301";

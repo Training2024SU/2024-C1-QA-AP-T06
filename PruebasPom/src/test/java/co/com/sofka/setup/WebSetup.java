@@ -28,6 +28,10 @@ public class WebSetup {
                 break;
             case 3:
                 firefoxConfiguration();
+                break;
+            case 4:
+                driver = new ChromeDriver();
+                break;
             default:
                 System.out.println(OPCION_VALIDA);
         }
