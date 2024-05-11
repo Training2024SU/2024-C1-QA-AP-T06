@@ -17,6 +17,8 @@ import java.time.Duration;
 import java.util.Random;
 
 public class PageFactorySelectMenu extends FunctionsCommons {
+    public static final String SELECT_GROUP = "Group 1, option 1";
+    public static final String SELECT_ONE = "Dr.";
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     Random random = new Random();
     String num = ((String.valueOf(random.nextInt(10) + 1)));
@@ -67,10 +69,10 @@ public class PageFactorySelectMenu extends FunctionsCommons {
     public void llenarCampos() {
         scrollTo(campoValue);
         clickSelection(campoValue);
-        typeInto(insertInput, "Group 1, option 1");
+        typeInto(insertInput, SELECT_GROUP);
         insertInput.sendKeys(Keys.ENTER);
         clickSelection(campoSelecOne);
-        typeInto(insertInputSelectOne, "Dr.");
+        typeInto(insertInputSelectOne, SELECT_ONE);
         insertInputSelectOne.sendKeys(Keys.ENTER);
         clickSelection(campoOldStyleSelectMenu);
         wait.until(ExpectedConditions.elementToBeClickable(opcionColor));

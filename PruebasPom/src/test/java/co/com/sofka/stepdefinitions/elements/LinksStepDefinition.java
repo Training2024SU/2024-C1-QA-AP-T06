@@ -81,7 +81,6 @@ public class LinksStepDefinition extends WebSetup {
             quiteDrive();
             Assertions.fail();
         }finally {
-//            Thread.sleep(5000); para pruebas no descomentar
             quiteDrive();
         }
     }
