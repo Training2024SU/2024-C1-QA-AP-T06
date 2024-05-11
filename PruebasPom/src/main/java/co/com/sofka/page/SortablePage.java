@@ -82,10 +82,10 @@ public class SortablePage extends FunctionsCommons {
                         .perform());
     }
 
-    public void organizarLista() throws InterruptedException {
+    public void organizarLista(){
         clickSelection(sortableOption);
         clickHoldAndMoveVertically(tercerElemnto,100);
-        Thread.sleep(100);
+
     }
 
 
@@ -98,5 +98,9 @@ public class SortablePage extends FunctionsCommons {
             }
         }
         return false;
+    }
+
+    public int obtenerPosicionYElementoMovido() {
+        return tercerElemnto.getLocation().getY();
     }
 }

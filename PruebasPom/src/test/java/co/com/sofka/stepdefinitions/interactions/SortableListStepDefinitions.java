@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Assertions;
 
 public class SortableListStepDefinitions extends WebSetup {
     private SortablePage sortablePage;
+    private int posicionInicialY;
 
     @When("ordena la lista")
     public void ordena_la_lista() {
@@ -23,5 +24,6 @@ public class SortableListStepDefinitions extends WebSetup {
 
     @Then("debería veria el nuevo orden de la lista")
     public void deberíaVeriaElNuevoOrdenDeLaLista() {
-    }
-}
+        quiteDrive();
+    }}
+
