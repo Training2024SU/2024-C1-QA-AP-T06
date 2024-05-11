@@ -38,7 +38,7 @@ public class ResizableStepDefinition extends WebSetup {
         }
     }
     @Then("las cajas deberian visualizarse del tamaño correctamente dimensionado")
-    public void deberia_visualizarse_del_tamaño_correctamente_dimensionado() {
+    public void deberia_visualizarse_del_tamano_correctamente_dimensionado() {
         try {
             Assertions.assertEquals(BOXLIMIT_WIDHT, resizablePage.getWidthLimitBoxSixe());
             Assertions.assertEquals(BOXLIMIT_HEIGHT, resizablePage.getHeightLimitBoxSixe());

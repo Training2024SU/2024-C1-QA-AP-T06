@@ -13,8 +13,14 @@ public class DroppableSD extends WebSetup {
 
     @When("ingresa hasta la interaccion Droppable")
     public void ingresa_hasta_la_interaccion_droppable() {
-        droppablePage = new DroppablePage(driver);
-        droppablePage.goToDroppable();
+        try {
+            droppablePage = new DroppablePage(driver);
+            droppablePage.goToDroppable();
+        }catch (Exception e){
+            quiteDrive();
+            Assert.fail();
+        }
+
     }
     @When("arrastra la caja a la ubicacion indicada")
     public void arrastra_la_caja_a_la_ubicacion_indicada() {

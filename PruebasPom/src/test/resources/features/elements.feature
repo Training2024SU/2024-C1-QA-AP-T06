@@ -95,6 +95,28 @@ Feature: Elements DemoQA
 
 
 
+    @BottonClick
+  Scenario: Prueba de click en el boton
+    When hace click en el boton
+    Then deberia ver el mensaje de click
+
+
+  @BottonClickDerecho
+  Scenario: Prueba de click derecho en el boton
+    When hace click derecho en el boton
+    Then deberia ver el mensaje de click derecho
+
+
+  @BottonDobleClick
+  Scenario: Prueba de doble click en el boton
+    When hace doble click en el boton
+    Then deberia ver el mensaje de doble click
+
+  @DavidTearDown
+  Scenario: Propiedades dinamicas
+    When El usuario accede a la opción de propiedades dinámicas
+    And Espera a que las propiedades de los elementos cambien
+    Then debería ver los elementos actualizarse
 
 
 

@@ -10,6 +10,7 @@ import static co.com.sofka.stepdefinitions.bookstore.ConstantesBookStoreService.
 public class BookStoreDeleteBookNotAuthorized extends ServiceSetup {
     @When("el usuario {string} intenta eliminar el libro con isbn {string}")
     public void elUsuarioIntentaEliminarElLibroConIsbn(String userId, String isbn) {
+
         DeleteBookAPIModel deleteBookAPIModel= new DeleteBookAPIModel(userId, isbn);
         Gson gson = new Gson();
         String jsonModel = gson.toJson(deleteBookAPIModel);

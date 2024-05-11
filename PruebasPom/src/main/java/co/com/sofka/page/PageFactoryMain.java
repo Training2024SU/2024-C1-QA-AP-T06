@@ -26,7 +26,7 @@ public class PageFactoryMain extends FunctionsCommons {
     private WebElement widgets;
 
     @CacheLookup
-    @FindBy(xpath = "//h5[contains(text(), 'Elements')]/ancestor::div[@class = 'card mt-4 top-card']")
+    @FindBy(xpath = "//h5[contains(text(), 'Elements')]")
     private WebElement elementos;
 
     @CacheLookup
@@ -65,8 +65,9 @@ public class PageFactoryMain extends FunctionsCommons {
 
     }
 
-    public void navegarBookStoreApplication(){
+    public void navegarBookStoreApplication() {
         scrollTo(bookStoreApplication);
-        clickSelection(bookStoreApplication);}
+        clickSelection(bookStoreApplication);
+    }
 
 }

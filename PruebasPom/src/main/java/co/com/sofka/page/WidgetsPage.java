@@ -11,6 +11,12 @@ public class WidgetsPage extends FunctionsCommons {
     @CacheLookup
     @FindBy(xpath = "//span[text()='Date Picker']/..")
     WebElement datePickerLI;
+    @FindBy(xpath = "//span[text()='Accordian']/..")
+    WebElement accordian;
+    @FindBy(xpath = "//span[text()='Auto Complete']/..")
+    WebElement autoComplete;
+    @FindBy(xpath = "//span[text()='Menu']/..")
+    WebElement menu;
 
     @CacheLookup
     @FindBy(xpath = "//span[text()='Slider']")
@@ -24,6 +30,21 @@ public class WidgetsPage extends FunctionsCommons {
     public void navegarADatePickerPage() {
         scrollTo(datePickerLI);
         clickSelection(datePickerLI);
+    }
+
+    public void navegarAccordian() {
+        scrollTo(accordian);
+        clickSelection(accordian);
+    }
+
+    public void navegarAutoComplete() {
+        scrollTo(autoComplete);
+        clickSelection(autoComplete);
+    }
+
+    public void navegarMenu() {
+        scrollTo(menu);
+        clickSelection(menu);
     }
 
     public void navegarASlider() {

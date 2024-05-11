@@ -1,6 +1,7 @@
 package co.com.sofka.stepdefinitions.interactions;
 
 import co.com.sofka.page.InteractionsPage;
+import co.com.sofka.page.ResizablePage;
 import co.com.sofka.page.SelectablePage;
 import co.com.sofka.setup.WebSetup;
 import io.cucumber.java.ParameterType;
@@ -8,6 +9,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.jupiter.api.Assertions;
 
 import java.util.Arrays;
 import java.util.List;
@@ -30,34 +32,77 @@ public class SelectionSteps extends WebSetup {
 
     @Given("El usuario accede a la opción de seleccionables")
     public void elUsuarioAccedeALaOpcionDeSeleccionables() {
-        InteractionsPage interactionsPage = new InteractionsPage(driver);
-        interactionsPage.navegarASelectablePage();
-        selectablePage = new SelectablePage(driver);
+        try {
+            InteractionsPage interactionsPage = new InteractionsPage(driver);
+            interactionsPage.navegarASelectablePage();
+            selectablePage = new SelectablePage(driver);
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            quiteDrive();
+            Assertions.fail();
+        }
+
     }
 
     @When("selecciona los elementos {listOfIntegers}")
     public void seleccionaLosElementos(List<Integer> posiciones) {
-        selectablePage.seleccionarItems(posiciones);
+        try {
+            selectablePage.seleccionarItems(posiciones);
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            quiteDrive();
+            Assertions.fail();
+        }
+
     }
 
     @And("des-selecciona los items {listOfIntegers}")
     public void desSeleccionaLosItems(List<Integer> posiciones) {
-        selectablePage.desSeleccionarItemsLista(posiciones);
+        try {
+            selectablePage.desSeleccionarItemsLista(posiciones);
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            quiteDrive();
+            Assertions.fail();
+        }
+
     }
 
     @Then("debería ver seleccionados los elementos {listOfIntegers}")
     public void deberiaVerSeleccionadosLosElementos(List<Integer> posiciones) {
-        assertThat(selectablePage.obtenerItemsListaSeleccionados(), contains(posiciones.toArray()));
+        try {
+            assertThat(selectablePage.obtenerItemsListaSeleccionados(), contains(posiciones.toArray()));
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            Assertions.fail();
+        } finally {
+            quiteDrive();
+        }
     }
 
     @When("selecciona y des-selecciona varios elementos")
     public void seleccionaYDesSeleccionaVariosElementos() {
-        selectablePage.interactuarConItemsGrid();
+        try {
+            selectablePage.interactuarConItemsGrid();
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            quiteDrive();
+            Assertions.fail();
+        }
+
     }
 
     @Then("debería ver los elementos seleccionados correctamente")
     public void deberiaVerLosElementosSeleccionadosCorrectamente() {
-        assertThat(selectablePage.obtenerItemsGridSeleccionados(),
-                not(emptyCollectionOf(Integer.class)));
+        try {
+            assertThat(selectablePage.obtenerItemsGridSeleccionados(),
+                    not(emptyCollectionOf(Integer.class)));
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            Assertions.fail();
+        } finally {
+            quiteDrive();
+        }
+
     }
 }

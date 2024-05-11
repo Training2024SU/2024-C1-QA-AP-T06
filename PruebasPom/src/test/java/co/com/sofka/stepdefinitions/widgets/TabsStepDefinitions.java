@@ -12,27 +12,30 @@ import static co.com.sofka.page.PageFactoryTabs.INTEREACION;
 
 public class TabsStepDefinitions extends WebSetup {
     PageFactoryTabs pageFactoryTabs;
+
     @When("se dirije a la pagina tabs")
     public void seDirijeALaPaginaTabs() {
         try {
             pageFactoryTabs = new PageFactoryTabs(driver);
             pageFactoryTabs.irPaginaTabs();
-        }catch (Exception e){
+        } catch (Exception e) {
             System.err.println(e.getMessage());
             quiteDrive();
             Assertions.fail();
         }
     }
+
     @Then("deberia poder interactuar con los elementos de la pagina")
     public void deberiaPoderInteractuarConLosElementosDeLaPagina() {
         try {
             pageFactoryTabs = new PageFactoryTabs(driver);
             pageFactoryTabs.interactuarTabs();
             Assert.assertEquals(INTEREACION, pageFactoryTabs.mensajeActual());
-        }catch (Exception e){
+        } catch (Exception e) {
             System.err.println(e.getMessage());
-            quiteDrive();
             Assertions.fail();
+        } finally {
+            quiteDrive();
         }
     }
 }

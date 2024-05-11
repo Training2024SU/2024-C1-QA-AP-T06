@@ -15,32 +15,35 @@ public class ToolTipsStepDefinitions extends WebSetup {
         try {
             pageFactoryToolTips = new PageFactoryToolTips(driver);
             pageFactoryToolTips.irPaginaToolTisp();
-        }catch (Exception e){
+        } catch (Exception e) {
             System.err.println(e.getMessage());
             quiteDrive();
             Assertions.fail();
         }
     }
+
     @When("ingresa el texto {string} en el campo de texto")
     public void ingresaElTextoEnElCampoDeTexto(String text) {
         try {
             pageFactoryToolTips = new PageFactoryToolTips(driver);
             pageFactoryToolTips.ingresarTexto(text);
-        }catch (Exception e){
+        } catch (Exception e) {
             System.err.println(e.getMessage());
             quiteDrive();
             Assertions.fail();
         }
     }
+
     @Then("deberia ver el texto ingresado en el campo")
     public void deberiaVerElTextoIngresadoEnElCampo() {
         try {
             pageFactoryToolTips = new PageFactoryToolTips(driver);
             Assert.assertTrue(pageFactoryToolTips.contieneTexto().isEmpty());
-        }catch (Exception e){
+        } catch (Exception e) {
             System.err.println(e.getMessage());
-            quiteDrive();
             Assertions.fail();
+        } finally {
+            quiteDrive();
         }
     }
 }
