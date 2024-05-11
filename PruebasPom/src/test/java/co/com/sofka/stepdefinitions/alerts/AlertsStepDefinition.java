@@ -45,10 +45,11 @@ public class AlertsStepDefinition extends WebSetup {
             Assert.assertEquals("You clicked a button",alertText);
             alert.accept();
         }catch (Exception e){
-            quiteDrive();
             Assert.fail();
+        }finally{
+            quiteDrive();
         }
-        quiteDrive();
+
     }
 
     @When("clickea sobre la alerta con timer")
@@ -68,10 +69,11 @@ public class AlertsStepDefinition extends WebSetup {
             Assert.assertEquals("This alert appeared after 5 seconds",alertText);
             alert.accept();
         }catch (Exception e){
-            quiteDrive();
             Assert.fail();
+        }finally {
+            quiteDrive();
         }
-        quiteDrive();
+
     }
 
     @When("clickea sobre la alerta con confirmacion")
@@ -91,10 +93,11 @@ public class AlertsStepDefinition extends WebSetup {
             Assert.assertEquals("Do you confirm action?",alertText);
             alert.accept();
         }catch (Exception e){
-            quiteDrive();
             Assert.fail();
+        }finally {
+            quiteDrive();
         }
-        quiteDrive();
+
     }
 
     @When("clickea sobre la alerta con prompt enviando el name Juan")
@@ -116,9 +119,10 @@ public class AlertsStepDefinition extends WebSetup {
             Assert.assertEquals("Please enter your name",alertText);
             alert.accept();
         }catch (Exception e){
-            quiteDrive();
             Assert.fail();
+        }finally {
+            quiteDrive();
         }
-        quiteDrive();
+
     }
 }
