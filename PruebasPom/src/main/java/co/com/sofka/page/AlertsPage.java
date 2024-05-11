@@ -74,7 +74,7 @@ public class AlertsPage extends FunctionsCommons {
         clickSelection(ALERTS_PRACTICE_LI);
     }
 
-    public void clickAlert(){
+    public Alert clickAlert(){
         clickSelection(CLICK_ALERT);
         Wait<WebDriver> wait =
                 new FluentWait<>(driver)
@@ -82,20 +82,21 @@ public class AlertsPage extends FunctionsCommons {
                         .pollingEvery(Duration.ofMillis(300))
                         .ignoring(ElementNotInteractableException.class);
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
-        alert.accept();
+        return alert;
     }
 
-    public void timerAlert() {
+    public Alert timerAlert() {
+        scrollTo(RETARDED_ALERT);
         clickSelection(RETARDED_ALERT);
         Wait<WebDriver> wait = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(8))
                 .pollingEvery(Duration.ofSeconds(2))
                 .ignoring(ElementNotInteractableException.class);
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
-        alert.accept();
+        return alert;
     }
 
-    public void confirmacionAlert() {
+    public Alert confirmacionAlert() {
         clickSelection(CONFIRMACION_ALERT);
         Wait<WebDriver> wait =
                 new FluentWait<>(driver)
@@ -103,10 +104,10 @@ public class AlertsPage extends FunctionsCommons {
                         .pollingEvery(Duration.ofMillis(300))
                         .ignoring(ElementNotInteractableException.class);
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
-        alert.accept();
+        return alert;
     }
 
-    public void promptAlert() {
+    public Alert promptAlert() {
         clickSelection(PROMPT_ALERT);
         Wait<WebDriver> wait =
                 new FluentWait<>(driver)
@@ -114,7 +115,7 @@ public class AlertsPage extends FunctionsCommons {
                         .pollingEvery(Duration.ofMillis(300))
                         .ignoring(ElementNotInteractableException.class);
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
-        alert.sendKeys("Vamo a abusal");
-        alert.accept();
+        return alert;
+
     }
 }
