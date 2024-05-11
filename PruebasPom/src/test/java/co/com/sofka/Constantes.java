@@ -13,5 +13,8 @@ public class Constantes {
     public static final String MENSAJE_ESPERADO_PARENT_FRAME = "Parent frame";
     public static final String MENSAJE_ESPERADO_CHILD_FRAME ="Child Iframe";
 
+    public static final String MENSAJE_ESPERADO_CHECK_BOX = "You have selected :";
+    public static final String MENSAJE_ESPERADO_RADIO = "Impressive";
+
 
 }

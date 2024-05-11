@@ -32,7 +32,7 @@ public class WebSetup {
                 System.out.println(OPCION_VALIDA);
         }
         driver.get(DEMO_QA_URL);
-//        maximize();
+        maximize();
     }
 
     private void firefoxConfiguration() {
