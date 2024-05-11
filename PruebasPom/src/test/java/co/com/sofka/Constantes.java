@@ -12,6 +12,7 @@ public class Constantes {
             "saving. Please share this website with your friends and in your organization.";
     public static final String MENSAJE_ESPERADO_PARENT_FRAME = "Parent frame";
     public static final String MENSAJE_ESPERADO_CHILD_FRAME ="Child Iframe";
+    public static final String PAGINA_STATUS500 ="https://the-internet.herokuapp.com/status_codes/500";
 
 
     public static final String CREATED = "201";

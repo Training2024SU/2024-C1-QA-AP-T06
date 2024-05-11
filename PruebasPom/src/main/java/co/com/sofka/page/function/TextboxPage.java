@@ -5,15 +5,9 @@ import co.com.sofka.page.function.FunctionsCommons;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.CacheLookup;
-import org.openqa.selenium.support.FindBy;
 
 public class TextboxPage extends FunctionsCommons {
 
-    @CacheLookup
-    @FindBy(xpath = "//span[text() = 'TextBox']")
-    private WebElement TB;
 
 
     //Localizadores
@@ -39,16 +33,12 @@ public class TextboxPage extends FunctionsCommons {
         typeInto(CAMPO_EMAIL, textboxModel.getEmail());
         typeInto(CAMPO_CURRENT, textboxModel.getCurrent());
         typeInto(CAMPO_PERMANET, textboxModel.getPermanet());
-        //scrollTo(BTN_SUBMIT);
         clickSelection(BTN_SUBMIT);
         waitSeconds(10);
 
     }
     public void goToTB() {
-
-       // waitSeconds(1000);
         clickSelection(BTN_TEXTBOX);
-      //  waitSeconds(100);
 
     }
     public boolean isElementPresent(By locator) {
