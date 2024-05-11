@@ -12,6 +12,10 @@ public class WidgetsPage extends FunctionsCommons {
     @FindBy(xpath = "//span[text()='Date Picker']/..")
     WebElement datePickerLI;
 
+    @CacheLookup
+    @FindBy(xpath = "//span[text()='Slider']")
+    private WebElement botonSlider;
+
     public WidgetsPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
@@ -20,5 +24,10 @@ public class WidgetsPage extends FunctionsCommons {
     public void navegarADatePickerPage() {
         scrollTo(datePickerLI);
         clickSelection(datePickerLI);
+    }
+
+    public void navegarASlider() {
+        scrollTo(botonSlider);
+        clickSelection(botonSlider);
     }
 }

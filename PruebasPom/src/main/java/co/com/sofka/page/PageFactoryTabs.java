@@ -9,6 +9,8 @@ import org.openqa.selenium.support.PageFactory;
 
 public class PageFactoryTabs extends FunctionsCommons {
 public static String INTEREACION = "Tabs";
+public static String EXPECTED = "Select Menu";
+
 
     @CacheLookup
     @FindBy(xpath = "//span[text()='Tabs']")
