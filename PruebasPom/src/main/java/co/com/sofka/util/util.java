@@ -4,9 +4,12 @@ import co.com.sofka.model.FormularioModel;
 import co.com.sofka.model.WebTableModel;
 import net.datafaker.Faker;
 
+import java.util.List;
+
 public class util {
 
-    public static WebTableModel crearFila(String nombre, String apellido, String correo, Integer edad, Integer salario, String departamento){
+    public static WebTableModel crearFila(String nombre, String apellido, String correo,
+                                          Integer edad, Integer salario, String departamento) {
         WebTableModel webTableModel = new WebTableModel();
         webTableModel.setNombre(nombre);
         webTableModel.setApellido(apellido);
@@ -17,7 +20,7 @@ public class util {
         return webTableModel;
     }
 
-    public static FormularioModel crearUsuario(){
+    public static FormularioModel crearUsuario() {
         FormularioModel formularioModel = new FormularioModel();
         Faker faker = new Faker();
         formularioModel.setFirstName(faker.name().firstName());
@@ -35,5 +38,8 @@ public class util {
         return formularioModel;
     }
 
-
+    public static <T> T pickRandomItem(List<T> list) {
+        int randomIdx = (int) Math.floor(Math.random() * list.size());
+        return list.get(randomIdx);
+    }
 }
