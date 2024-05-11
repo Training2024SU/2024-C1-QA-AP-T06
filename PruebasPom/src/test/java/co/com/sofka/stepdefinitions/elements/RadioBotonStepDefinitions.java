@@ -16,6 +16,12 @@ public class RadioBotonStepDefinitions extends WebSetup {
     CheckRadioPage checkRadioPage;
 
     @Given("el usuario accede a la sección de botones de radio")
+<<<<<<< HEAD
+    public void elUsuarioAccedeALaSeccionDeBotonesDeRadio() {
+        checkRadioPage = new CheckRadioPage(driver);
+        checkRadioPage.seleccionarOpcionRadioButton();
+
+=======
     public void elUsuarioAccedeALaSecciónDeBotonesDeRadio() {
         try {
             checkRadioPage = new CheckRadioPage(driver);
@@ -25,6 +31,7 @@ public class RadioBotonStepDefinitions extends WebSetup {
             quiteDrive(); // Quit driver session in case of error
             Assertions.fail("Fallo al intentar inicializar la pagina: " + e.getMessage());
         }
+>>>>>>> solucion
     }
 
     @When("selecciona las opciones de radio")

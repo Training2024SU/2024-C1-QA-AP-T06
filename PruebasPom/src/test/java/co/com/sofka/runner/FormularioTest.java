@@ -11,7 +11,6 @@ import org.junit.runner.RunWith;
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         publish = true,
         tags = "@TextBox"
-
 )
 public class FormularioTest {
 }
