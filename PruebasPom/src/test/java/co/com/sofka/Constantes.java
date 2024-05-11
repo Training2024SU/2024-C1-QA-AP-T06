@@ -14,4 +14,23 @@ public class Constantes {
     public static final String MENSAJE_ESPERADO_CHILD_FRAME ="Child Iframe";
 
 
+    public static final String CREATED = "201";
+    public static final String NO_CONTENT = "204";
+    public static final String MOVED = "301";
+    public static final String BAD_REQUEST = "400";
+    public static final String UNAUTHORIZED = "401";
+    public static final String FORBIDDEN = "403";
+    public static final String NOT_FOUND = "404";
+    public static final String MENSAJE_ESPERADO_CHECK_BOX = "You have selected :";
+    public static final String MENSAJE_ESPERADO_RADIO = "Impressive";
+
+    public static final String MSN_GRACIAS = "Thanks for submitting the form";
+
+    public static final int BOXLIMIT_WIDHT = 500;
+
+    public static final int BOXLIMIT_HEIGHT = 300;
+    public static final int BOXNOTLIMIT_WIDHT = 550;
+    public static final int BOXNOTLIMIT_HEIGHT = 250;
+
+
 }

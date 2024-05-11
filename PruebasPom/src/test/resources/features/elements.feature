@@ -3,6 +3,7 @@ Feature: Elements DemoQA
   Background:
     Given El usuario esta en la pagina web de elements demoqa 1
 
+
   @webtables
   Scenario Outline: agregar, actualizar y borrar tablas
     When usa el boton de add
@@ -14,11 +15,6 @@ Feature: Elements DemoQA
       | nombre  | apellido   | correo              | edad | salario | departamento | correoActualizar     | correoEliminar      |
       | "jorge" | "de neiva" | "jorge@example.com" | 35   | 2000    | "CALIDAD"    | "cierra@example.com" | "alden@example.com" |
 
-  @nuevaPestaña
-  Scenario: abrir link nueva pestaña
-    Given el usuario esta en el apartado links de Elementos
-    When el usuario hace clic en los enlaces Home y HomewXVOz
-    Then se deberian redirigir al home de DemoQA correctamente
 
   @TextBox
   Scenario Outline: Llenar un formulario de contacto
@@ -36,20 +32,32 @@ Feature: Elements DemoQA
       | Johan Lucas     | johan@gmail.com | Dirección actual 2 | Dirección permanente 2 |
       | Juan Bautista   | juan@gmail.com  | Dirección actual 3 | Dirección permanente 3 |
 
-
-
-
   @CheckBox
+  @Elements
   Scenario: Interacción con casillas de verificación
     Given el usuario accede a la sección de casillas de verificación
     When expande selecciona y reduce las casillas de verificación
     Then debería ver un mensaje con la cantidad de casillas seleccionadas
 
   @Radio
+  @Elements
   Scenario: Interacción con radio button
     Given el usuario accede a la sección de botones de radio
     When selecciona las opciones de radio
     Then debería ver un mensaje correspondiente al boton de radio seleccionado
 
+  @linkElement
+  @nuevaPestaña
+  Scenario: abrir link nueva pestaña
+    Given el usuario navega al apartado links de Elementos
+    When el usuario hace clic en los enlaces Home y HomewXVOz
+    Then se deberia estar en el apartado links de elementos luego de abrir la pestaña de los enlaces Home y HomewXVOz
+
+  @linkElement
+  @linkApi
+  Scenario: interaccion links api call
+    Given el usuario navega al apartado links de Elementos
+    When el usuario hace click en todas los link de api call
+    Then se deberia mostrar en pantalla un mensaje con la respuesta de la api
 
 

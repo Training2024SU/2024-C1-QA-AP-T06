@@ -1,6 +1,7 @@
 package co.com.sofka.page;
 
 import co.com.sofka.page.function.FunctionsCommons;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -9,15 +10,31 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.time.Duration;
+
+import static io.opentelemetry.semconv.SemanticAttributes.AndroidStateValues.CREATED;
 
 
 public class ElementLinksPage extends FunctionsCommons {
 
     private String validatelinkHomd;
     private String validateDynamiclink;
+
+    private String responseCreated ;
+    private String responseNoContent ;
+    private String responseMoved ;
+    private String responseBadRequest ;
+    private String responseUnauthorized ;
+    private String responseForbidden ;
+    private String responseNotFound;
+
+    public static final String CREATED = "201";
+    public static final String NO_CONTENT = "204";
+    public static final String MOVED = "301";
+    public static final String BAD_REQUEST = "400";
+    public static final String UNAUTHORIZED = "401";
+    public static final String FORBIDDEN = "403";
+    public static final String NOT_FOUND = "404";
 
     public ElementLinksPage(WebDriver driver) {
         super(driver);
@@ -38,19 +55,79 @@ public class ElementLinksPage extends FunctionsCommons {
     private WebElement dynamicLink;
 
     @CacheLookup
-    @FindBy(xpath = "//img[@alt='Selenium Online Training']")
-    private WebElement bannerHome;
+    @FindBy(id = "created")
+    private WebElement createdLink;
+
+    @CacheLookup
+    @FindBy(id = "no-content")
+    private WebElement noContentLink;
+
+    @CacheLookup
+    @FindBy(id = "moved")
+    private WebElement movedLink;
+
+    @CacheLookup
+    @FindBy(id = "bad-request")
+    private WebElement badRequestLink;
+
+    @CacheLookup
+    @FindBy(id = "unauthorized")
+    private WebElement unauthorizedLink;
+
+    @CacheLookup
+    @FindBy(id = "forbidden")
+    private WebElement forbiddenLink;
+
+    @CacheLookup
+    @FindBy(id = "invalid-url")
+    private WebElement invalidUrlLink;
+
+    @CacheLookup
+    @FindBy(id = "linkResponse")
+    private WebElement linkResponseLink;
+
 
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 
     //funciones
 
+
+    public String getResponseCreated() {
+        return responseCreated;
+    }
+
+    public String getResponseNoContent() {
+        return responseNoContent;
+    }
+
+    public String getResponseMoved() {
+        return responseMoved;
+    }
+
+    public String getResponseBadRequest() {
+        return responseBadRequest;
+    }
+
+    public String getResponseUnauthorized() {
+        return responseUnauthorized;
+    }
+
+    public String getResponseForbidden() {
+        return responseForbidden;
+    }
+
+    public String getResponseNotFound() {
+        return responseNotFound;
+    }
+
     public void irALinks(){
         clickSelection(links);
     }
 
     public void testLinks(){
+        scrollTo(linkHomd);
+
         wait.until(ExpectedConditions.visibilityOf(linkHomd));
         wait.until(ExpectedConditions.visibilityOf(dynamicLink));
 
@@ -70,35 +147,55 @@ public class ElementLinksPage extends FunctionsCommons {
 
         driver.switchTo().window(ventanaInicial);
 
-
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
         return newTab;
 
     }
 
 
 
-    public int verifyLink(String url) {
-        int response = 0;
-        try {
-            URL link = new URL(url);
-            HttpURLConnection httpURLConnection = (HttpURLConnection) link.openConnection();
-            httpURLConnection.setConnectTimeout(3000); // Set connection timeout to 3 seconds
-            httpURLConnection.connect();
-
-          response =  httpURLConnection.getResponseCode();
-
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-
-        return response;
+    public void createdClick (){
+        scrollTo(createdLink);
+        wait.until(ExpectedConditions.elementToBeClickable(createdLink));
+        clickSelection(createdLink);
+        this.responseCreated = responseTextLinkApi(CREATED);;
     }
+
+    public void noContentClick() {
+        wait.until(ExpectedConditions.elementToBeClickable(noContentLink));
+        clickSelection(noContentLink);
+        this.responseNoContent = responseTextLinkApi(NO_CONTENT);
+    }
+
+    public void movedClick() {
+        wait.until(ExpectedConditions.elementToBeClickable(movedLink));
+        clickSelection(movedLink);
+        this.responseMoved = responseTextLinkApi(MOVED);
+    }
+
+    public void badRequestClick() {
+        wait.until(ExpectedConditions.elementToBeClickable(badRequestLink));
+        clickSelection(badRequestLink);
+        this.responseBadRequest = responseTextLinkApi(BAD_REQUEST);
+    }
+
+    public void unauthorizedClick() {
+        wait.until(ExpectedConditions.elementToBeClickable(unauthorizedLink));
+        clickSelection(unauthorizedLink);
+        this.responseUnauthorized = responseTextLinkApi(UNAUTHORIZED);
+    }
+
+    public void forbiddenClick() {
+        wait.until(ExpectedConditions.elementToBeClickable(forbiddenLink));
+        clickSelection(forbiddenLink);
+        this.responseForbidden = responseTextLinkApi(FORBIDDEN);
+    }
+
+    public void notFoundClick() {
+        wait.until(ExpectedConditions.elementToBeClickable(invalidUrlLink));
+        clickSelection(invalidUrlLink);
+        this.responseNotFound = responseTextLinkApi(NOT_FOUND);
+    }
+
 
     public String getValidatelinkHomd() {
         return validatelinkHomd;
@@ -108,20 +205,11 @@ public class ElementLinksPage extends FunctionsCommons {
         return validateDynamiclink;
     }
 
-        public boolean validarImageBanner(WebElement linkToValidate){
-        boolean linkValidate = false;
-        try {
-            wait.until(ExpectedConditions.elementToBeClickable(linkToValidate));
-            linkValidate = true;
-
-        } catch (org.openqa.selenium.TimeoutException e) {
-            System.out.println(e);
-
-        }
-
-        return linkValidate;
+    public String responseTextLinkApi(String idResponse){
+        String xpath = "//p[@id='linkResponse']//b[contains(text(),'"+idResponse+"')]";
+        By localtor = By.xpath(xpath);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(localtor));
+        return  getText(localtor);
     }
-
-
 
 }

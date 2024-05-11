@@ -39,3 +39,17 @@ Feature:
     Examples:
       | texto                     |
       | El texto esta en el campo |
+
+  @selectMenu
+  Scenario: llenar campos select menu
+    When se dirije a la pagina select menu
+    And completa todos los campos
+    Then deberia poder ver toda la infomacion ingresada
+
+  @progressBar
+  Scenario: Activar la barra de progreso exitosamente
+    When se dirije a la pagina Progress bar
+    And usa el boton Start
+    And pausa la barra de progreso
+    And la activa otra vez
+    Then deberia terminar de cargar la barra completa y ver la palabra "Reset" y "100%"
