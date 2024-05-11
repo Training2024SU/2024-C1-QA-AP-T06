@@ -98,6 +98,26 @@ public class FunctionsCommons {
         wait.until(ExpectedConditions.visibilityOf(webElement));
     }
 
+
+    protected void clickHolding(By draggable, By droppable) {
+        WebElement sourceElement = driver.findElement(draggable);
+        WebElement targetElement = driver.findElement(droppable);
+        Point targetLocation = targetElement.getLocation();
+        int targetX = targetLocation.getX();
+        int targetY = targetLocation.getY();
+        int xOffset = targetX - sourceElement.getLocation().getX() + 10;
+        int yOffset = targetY - sourceElement.getLocation().getY() + 10;
+
+        new Actions(driver)
+                .clickAndHold(sourceElement)
+                .moveByOffset(xOffset, yOffset)
+                .release()
+                .build()
+                .perform();
+
+        //new Actions(driver).dragAndDrop(sourceElement,targetElement).perform();
+
+    }
     public void switchToIframe(WebElement locator) {
         driver.switchTo().frame(locator);
     }
