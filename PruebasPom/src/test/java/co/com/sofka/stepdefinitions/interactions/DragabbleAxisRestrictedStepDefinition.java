@@ -2,6 +2,7 @@ package co.com.sofka.stepdefinitions.interactions;
 
 import co.com.sofka.page.DragabblePage;
 import co.com.sofka.setup.WebSetup;
+import io.cucumber.java.an.E;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import org.junit.jupiter.api.Assertions;
@@ -14,17 +15,31 @@ public class DragabbleAxisRestrictedStepDefinition extends WebSetup {
     byte[] screenshotAfterMove;
     @When("accede a la seccion de acceso restringido en el navegador de dragabble {int}")
     public void accedeALaSeccionDeAccesoRestringidoEnElNavegadorDeDragabble(int posicion){
-        dragabblePage.abrirDragableNavPorPosicion(posicion);
+        try {
+            dragabblePage.abrirDragableNavPorPosicion(posicion);
+        }catch (Exception e){
+            System.err.println("Error al seleccionar la opción Dragabble: " + e.getMessage());
+            e.printStackTrace();
+            quiteDrive();
+            Assertions.fail();
+        }
     }
     @When("mueve los elementos uno horizontal y otro verticalmente")
     public void mueveLosElementosUnoHorizontalYOtroVerticalmente() {
-        // Capturar una imagen de la página antes de mover el elementos
-        screenshotBeforeMove = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+        try {
+            // Capturar una imagen de la página antes de mover el elementos
+            screenshotBeforeMove = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 
-        dragabblePage.moverElElementoDraggableAxisRestricted();
+            dragabblePage.moverElElementoDraggableAxisRestricted();
 
-        // Capturar una imagen de la página despues de mover los elementos
-        screenshotAfterMove = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+            // Capturar una imagen de la página despues de mover los elementos
+            screenshotAfterMove = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+        }catch (Exception e){
+            System.err.println("Error al mover el elemento: " + e.getMessage());
+            e.printStackTrace();
+            quiteDrive();
+            Assertions.fail();
+        }
      }
 
     @Then("deberian visualizarse en el lugar indicado")
@@ -36,8 +51,11 @@ public class DragabbleAxisRestrictedStepDefinition extends WebSetup {
         } catch (Exception e) {
             System.err.println("Error al verificar el movimiento del elemento: " + e.getMessage());
             e.printStackTrace();
+            Assertions.fail();
+        }finally {
+            quiteDrive();
         }
-        quiteDrive();
+
     }
 }
 

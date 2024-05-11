@@ -18,6 +18,8 @@ public class DragabbleCursorStyleStepDefiniton extends WebSetup{
         } catch (Exception e) {
             System.err.println("Error al acceder a la ventana cursor style en el navegador de dragabble: " + e.getMessage());
             e.printStackTrace();
+            quiteDrive();
+            Assertions.fail();
         }
     }
     @When("mueve los elementos")
@@ -33,6 +35,8 @@ public class DragabbleCursorStyleStepDefiniton extends WebSetup{
         } catch (Exception e) {
             System.err.println("Error al mover los elementos: " + e.getMessage());
             e.printStackTrace();
+            quiteDrive();
+            Assertions.fail();
         }
     }
 
@@ -45,7 +49,9 @@ public class DragabbleCursorStyleStepDefiniton extends WebSetup{
         } catch (Exception e) {
             System.err.println("Error al verificar el movimiento de los elementos: " + e.getMessage());
             e.printStackTrace();
+            Assertions.fail();
+        }finally {
+            quiteDrive();
         }
-        quiteDrive();
     }
 }

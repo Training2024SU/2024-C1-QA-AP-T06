@@ -19,6 +19,8 @@ public class DragabbleContainerRestrictedStepDefinition extends WebSetup {
         } catch (Exception e) {
             System.err.println("Error al acceder a la ventana container restricted en el navegador de dragabble: " + e.getMessage());
             e.printStackTrace();
+            quiteDrive();
+            Assertions.fail();
         }
     }
     @When("mueve los elementos con contenedor restringido")
@@ -34,6 +36,8 @@ public class DragabbleContainerRestrictedStepDefinition extends WebSetup {
         } catch (Exception e) {
             System.err.println("Error al mover los elementos con contenedor restringido: " + e.getMessage());
             e.printStackTrace();
+            quiteDrive();
+            Assertions.fail();
         }
     }
     @Then("deberian figurar en el lugar indicado")
@@ -45,7 +49,9 @@ public class DragabbleContainerRestrictedStepDefinition extends WebSetup {
         } catch (Exception e) {
             System.err.println("Error al verificar el movimiento del elemento: " + e.getMessage());
             e.printStackTrace();
+            Assertions.fail();
+        }finally {
+            quiteDrive();
         }
-        quiteDrive();
     }
 }
