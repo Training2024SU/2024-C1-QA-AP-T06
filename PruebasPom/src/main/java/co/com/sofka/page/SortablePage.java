@@ -16,18 +16,26 @@ import java.util.stream.IntStream;
 public class SortablePage extends FunctionsCommons {
 
 
-
+    @CacheLookup
     @FindBy(xpath = "//span[@class='text' and text()='Sortable']")
     private WebElement sortableOption;
 
+    @CacheLookup
     @FindBy(id = "demo-tab-grid")
     private WebElement gridOption;
 
+    @CacheLookup
     @FindBy(xpath = "//div[@class='grid-container mt-4']//div[contains(@class, 'list-group-item')]")
     private List<WebElement> listItems;
 
+    @CacheLookup
     @FindBy(id = "Ad.Plus-970x250-2")
     private WebElement adContainer;
+
+    @CacheLookup
+    @FindBy(xpath = "//div[@class='list-group-item list-group-item-action' and text()='Three']")
+    private WebElement tercerElemnto;
+
 
     private List<String> originalOrder;
 
@@ -74,6 +82,12 @@ public class SortablePage extends FunctionsCommons {
                         .perform());
     }
 
+    public void organizarLista() throws InterruptedException {
+        clickSelection(sortableOption);
+        clickHoldAndMoveVertically(tercerElemnto,100);
+        Thread.sleep(100);
+    }
+
 
     public boolean compareLists() {
         for (int i = 0; i < listItems.size(); i++) {
@@ -83,6 +97,6 @@ public class SortablePage extends FunctionsCommons {
                 return true; // Comparison fails if a difference is found
             }
         }
-        return false; // All comparisons are equal
+        return false;
     }
 }

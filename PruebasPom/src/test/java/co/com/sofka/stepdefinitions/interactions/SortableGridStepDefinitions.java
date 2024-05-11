@@ -12,8 +12,14 @@ public class SortableGridStepDefinitions extends WebSetup {
 
     @When("el usuario selecciona en la página de ordenamiento")
     public void el_usuario_selecciona_en_la_página_de_ordenamiento() {
-        sortablePage = new SortablePage(driver);
-        sortablePage.getElements();
+       try{
+           sortablePage = new SortablePage(driver);
+           sortablePage.getElements();
+       }catch (Exception e){
+           System.out.println(e.getMessage());
+           quiteDrive();
+           Assertions.fail();
+       }
 
     }
     @When("organiza su lista")

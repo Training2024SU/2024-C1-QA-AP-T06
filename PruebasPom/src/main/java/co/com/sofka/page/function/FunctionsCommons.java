@@ -117,4 +117,13 @@ public class FunctionsCommons {
         webElement.clear();
     }
 
+    protected void clickHoldAndMoveVertically(WebElement element, int yOffset) {
+        Actions actions = new Actions(driver);
+        actions.clickAndHold(element)
+                .moveByOffset(0, yOffset)
+                .release()
+                .perform();
+    }
+
+
 }

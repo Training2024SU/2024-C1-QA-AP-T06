@@ -9,8 +9,7 @@ Feature:  Sortable successful
     And organiza su lista
     Then debería ver la opción ordenada
 
-  #@SortableList
+  @SortableList
   Scenario: Interacción exitosa de ordenamiento en una lista
-    When el usuario selecciona el ordenamiento tipo lista
     And ordena la lista
-    Then debería ver la opción ordenada
+    Then debería veria el nuevo orden de la lista
