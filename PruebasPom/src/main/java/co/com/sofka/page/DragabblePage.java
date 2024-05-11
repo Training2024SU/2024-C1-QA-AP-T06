@@ -8,11 +8,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class DragabblePage extends FunctionsCommons {
+    //Localizadores
     @CacheLookup
-    @FindBy(xpath = "//div[contains(string(), \"Interactions\") and contains(@class, 'top-card')]")
+    @FindBy(xpath = "//div[contains(string(), 'Interactions') and contains(@class, 'top-card')]")
     private WebElement seccionInteraccion;
     @CacheLookup
-    @FindBy(xpath = "//li[contains(string(), \"Dragabble\") and contains(@class, 'btn-light')]")
+    @FindBy(xpath = "//li[contains(string(), 'Dragabble') and contains(@class, 'btn-light')]")
     private WebElement seccionDragabble;
     @CacheLookup
     @FindBy(xpath = "//div[@id='dragBox']")
@@ -38,12 +39,14 @@ public class DragabblePage extends FunctionsCommons {
     @CacheLookup
     @FindBy(xpath = "//div[@id='cursorBottom']")
     private WebElement dragElementRestrictedCursorBottom;
-    private String selectorOpcionDragable = "//nav[@role='tablist']/a";
-    
+
+    //Constructor
     public DragabblePage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
+
+    //Funciones
     public void ingresarASeccionDragabble(){
         scrollTo(seccionDragabble);
         clickSelection(seccionDragabble);
@@ -53,6 +56,7 @@ public class DragabblePage extends FunctionsCommons {
     }
 
     private WebElement opcionDragable(int posicion){
+        String selectorOpcionDragable = "//nav[@role='tablist']/a";
         return driver.findElement(By.xpath(selectorOpcionDragable + "[" + posicion + "]"));
     }
     protected void dragCoordinates(WebElement element, int targetX, int targetY){
@@ -64,31 +68,36 @@ public class DragabblePage extends FunctionsCommons {
                 .perform();
     }
     public void moverElElementoDraggableSimple(){
+        scrollTo(dragabbleSimpleElemento);
         dragabbleSimpleElemento.click();
-        dragCoordinates(dragabbleSimpleElemento, 500, 500);
+        dragCoordinates(dragabbleSimpleElemento, 100, 50);
     }
     public void moverElElementoDraggableAxisRestricted(){
+        scrollTo(dragabbleElementoAxisRetrictedX);
         dragabbleElementoAxisRetrictedX.click();
-        dragCoordinates(dragabbleElementoAxisRetrictedX, 400, 0);
+        dragCoordinates(dragabbleElementoAxisRetrictedX, 50, 0);
         dragabbleElementoAxisRetrictedY.click();
-        dragCoordinates(dragabbleElementoAxisRetrictedY, 0, 400);
+        dragCoordinates(dragabbleElementoAxisRetrictedY, 0, 50);
     }
-
     public void moverElementosContainerRestricted(){
+        scrollTo(dragElementRestrictedUpside);
         dragElementRestrictedUpside.click();
-        dragCoordinates(dragElementRestrictedUpside, 350, 100);
-
+        dragCoordinates(dragElementRestrictedUpside, 100, 50);
+        scrollTo(dragElementRestrictedDownSide);
         dragElementRestrictedDownSide.click();
-        dragCoordinates(dragElementRestrictedDownSide, 10, 100);
+        dragCoordinates(dragElementRestrictedDownSide, 10, 50);
     }
     public void moverElementosCursorStyle(){
+        scrollTo(dragElementRestrictedCenter);
         dragElementRestrictedCenter.click();
-        dragCoordinates(dragElementRestrictedCenter, 350, 150);
+        dragCoordinates(dragElementRestrictedCenter, 100, 50);
 
+        scrollTo(dragElementRestrictedTopLeft);
         dragElementRestrictedTopLeft.click();
-        dragCoordinates(dragElementRestrictedTopLeft, 300, 200);
+        dragCoordinates(dragElementRestrictedTopLeft, 100, 50);
 
+        scrollTo(dragElementRestrictedCursorBottom);
         dragElementRestrictedCursorBottom.click();
-        dragCoordinates(dragElementRestrictedCursorBottom, 200, 300);
+        dragCoordinates(dragElementRestrictedCursorBottom, 100, 50);
     }
 }

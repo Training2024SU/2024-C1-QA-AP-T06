@@ -11,6 +11,9 @@ public class InteractionsPage extends FunctionsCommons {
     @CacheLookup
     @FindBy(xpath = "//span[text()='Selectable']/..")
     WebElement selectableLI;
+    @CacheLookup
+    @FindBy(xpath = "//span[text()='Droppable']")
+    WebElement droppable;
 
     public InteractionsPage(WebDriver driver) {
         super(driver);
@@ -20,5 +23,9 @@ public class InteractionsPage extends FunctionsCommons {
     public void navegarASelectablePage() {
         scrollTo(selectableLI);
         clickSelection(selectableLI);
+    }
+    public void navegarADroppablePage(){
+        scrollTo(droppable);
+        clickSelection(droppable);
     }
 }

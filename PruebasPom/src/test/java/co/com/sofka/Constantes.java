@@ -32,6 +32,7 @@ public class Constantes {
     public static final int BOXLIMIT_HEIGHT = 300;
     public static final int BOXNOTLIMIT_WIDHT = 550;
     public static final int BOXNOTLIMIT_HEIGHT = 250;
+    public static final int ELEMENTO_POSICION = 438;
 
 
 }

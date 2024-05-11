@@ -9,7 +9,6 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 
-import static co.com.sofka.Constantes.MENSAJE_ESPERADO_CHECK_BOX;
 import static co.com.sofka.Constantes.MENSAJE_ESPERADO_RADIO;
 
 public class RadioBotonStepDefinitions extends WebSetup {
@@ -17,7 +16,14 @@ public class RadioBotonStepDefinitions extends WebSetup {
     CheckRadioPage checkRadioPage;
 
     @Given("el usuario accede a la sección de botones de radio")
+
+
     public void elUsuarioAccedeALaSeccionDeBotonesDeRadio() {
+        checkRadioPage = new CheckRadioPage(driver);
+        checkRadioPage.seleccionarOpcionRadioButton();
+
+    //public void elUsuarioAccedeALaSeccionDeBotonesDeRadio() {
+
         try {
             checkRadioPage = new CheckRadioPage(driver);
             checkRadioPage.seleccionarOpcionRadioButton();
@@ -26,6 +32,7 @@ public class RadioBotonStepDefinitions extends WebSetup {
             quiteDrive(); // Quit driver session in case of error
             Assertions.fail("Fallo al intentar inicializar la pagina: " + e.getMessage());
         }
+
     }
     @When("selecciona las opciones de radio")
     public void seleccionaLasOpcionesDeRadio() {
