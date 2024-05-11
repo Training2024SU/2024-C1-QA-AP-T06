@@ -50,6 +50,11 @@ public class FunctionsCommons {
         jse.executeScript("arguments[0].scrollIntoView();", element);
     }
 
+    protected void scrollTo (By locator){
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("arguments[0].scrollIntoView();",driver.findElement(locator));
+    }
+
     protected String getText(By locator) {
         return driver.findElement(locator).getText();
     }
@@ -96,4 +101,20 @@ public class FunctionsCommons {
         Actions actions = new Actions(driver);
         actions.clickAndHold(locator).moveByOffset(pixeles, 0).release().perform();
     }
+
+    protected void typeKey(WebElement webElement, Keys value ){
+        webElement.sendKeys(value);
+    }
+    protected void typeKey(By locator, Keys value ){
+        driver.findElement(locator).sendKeys(value);
+    }
+
+    protected void clearInput(By locator ){
+        driver.findElement(locator).clear();
+    }
+
+    protected void clearInput(WebElement webElement) {
+        webElement.clear();
+    }
+
 }

@@ -23,5 +23,6 @@ public class Constantes {
     public static final String MENSAJE_ESPERADO_CHECK_BOX = "You have selected :";
     public static final String MENSAJE_ESPERADO_RADIO = "Impressive";
 
+    public static final String MSN_GRACIAS = "Thanks for submitting the form";
 
 }
