@@ -7,14 +7,17 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class SortablePage extends FunctionsCommons {
-
+    private WebDriverWait wait;
 
     @CacheLookup
     @FindBy(xpath = "//span[@class='text' and text()='Sortable']")
@@ -42,6 +45,7 @@ public class SortablePage extends FunctionsCommons {
     public SortablePage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     public void getElements() {
@@ -100,7 +104,7 @@ public class SortablePage extends FunctionsCommons {
         return false;
     }
 
-    public int obtenerPosicionYElementoMovido() {
+    public int obtenerPosicionYElemento() {
         return tercerElemnto.getLocation().getY();
     }
 }
