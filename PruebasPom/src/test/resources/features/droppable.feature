@@ -23,3 +23,9 @@ Feature: Cajas droppables
     When ingresa hasta la pagina de droppable al apartado prevent propogation
     And arrastra la caja Drag me hasta inner droppable
     Then debería aparecer un mensaje "Dropped!"
+
+  @RevertDraggable
+  Scenario: Revert draggable
+    When ingresa hasta la pagina de droppable al apartado revert draggable
+    And arrastra los elementos drag hasta la seccion drop here
+    Then deberia cambiar el mensaje a "Dropped!"

@@ -93,6 +93,10 @@ public class FunctionsCommons {
         }
     }
 
+    protected void waitToBeClickeable(By locator) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(locator)));
+    }
     protected void waitToBeVisible(WebElement webElement) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(webElement));
@@ -126,6 +130,19 @@ public class FunctionsCommons {
         actions.moveToElement(dragElement).clickAndHold().moveToElement(dropZone).release().perform();
     }
 
+    protected void dragAndDropBy(By locator, int ejeX, int ejeY) {
+        WebElement draggable = driver.findElement(locator);
+        Actions actions = new Actions(driver);
+        actions.dragAndDropBy(draggable, ejeX, ejeY).perform();
+    }
+
+    protected void dragAndDrop(By dragLocator, By dropLocator) {
+        WebElement dragElement = driver.findElement(dragLocator);
+        WebElement dropZone = driver.findElement(dropLocator);
+        Actions actions = new Actions(driver);
+        actions.dragAndDrop(dragElement, dropZone).perform();
+    }
+
     public void switchToIframe(WebElement locator) {
         driver.switchTo().frame(locator);
     }
@@ -137,6 +154,10 @@ public class FunctionsCommons {
     public void moverElementoEnEjeX(WebElement locator, int pixeles) {
         Actions actions = new Actions(driver);
         actions.clickAndHold(locator).moveByOffset(pixeles, 0).release().perform();
+    }
+    public void moverElementoEnEjeX(By locator, int pixeles) {
+        Actions actions = new Actions(driver);
+        actions.clickAndHold(driver.findElement(locator)).moveByOffset(pixeles, 0).release().perform();
     }
 
     protected void typeKey(WebElement webElement, Keys value) {
@@ -176,6 +197,17 @@ public class FunctionsCommons {
     protected void moveByOffset(WebElement webElement, int xOffset, int yOffset) {
         Actions actions = new Actions(driver);
         actions.clickAndHold(webElement).moveByOffset(xOffset, yOffset).release().build().perform();
+    }
+
+    protected void clickAndHoldMoveToElement(By dragLocator, By dropLocator) {
+        WebElement dragElement = driver.findElement(dragLocator);
+        WebElement dropElement = driver.findElement(dropLocator);
+        Actions actions = new Actions(driver);
+        actions.clickAndHold(dragElement)
+                .moveToElement(dropElement)
+                .release()
+                .build()
+                .perform();
     }
 
     public int getElementWidth(WebElement element) {
