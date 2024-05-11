@@ -8,8 +8,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features/alertas.feature",
         glue = "co.com.sofka.stepdefinitions",
-        snippets = CucumberOptions.SnippetType.CAMELCASE
-//        tags = "@test1",
+        snippets = CucumberOptions.SnippetType.CAMELCASE,
+        tags = "@test1"
         //publish = true
 )
 public class AlertasTest {

@@ -14,6 +14,9 @@ public class AlertsWindowsPage extends FunctionsCommons {
     @CacheLookup
     @FindBy(xpath = "//span[text()='Nested Frames']")
     private WebElement nestedFrames;
+    @CacheLookup
+    @FindBy(xpath = "//span[text()='Modal Dialogs']")
+    private WebElement modalDialogs;
 
 
     public AlertsWindowsPage(WebDriver driver) {
@@ -27,5 +30,9 @@ public class AlertsWindowsPage extends FunctionsCommons {
     public void irANestedFrames() {
         scrollTo(nestedFrames);
         clickSelection(nestedFrames);
+    }
+    public void irAModalDialogs() {
+        scrollTo(modalDialogs);
+        clickSelection(modalDialogs);
     }
 }

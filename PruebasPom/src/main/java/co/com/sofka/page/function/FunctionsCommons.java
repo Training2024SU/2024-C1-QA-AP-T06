@@ -1,6 +1,7 @@
 package co.com.sofka.page.function;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
@@ -90,5 +91,9 @@ public class FunctionsCommons {
     }
     public void switchToPagina(WebElement locator){
         driver.switchTo().defaultContent();
+    }
+    public void moverElementoEnEjeX(WebElement locator, int pixeles){
+        Actions actions = new Actions(driver);
+        actions.clickAndHold(locator).moveByOffset(pixeles, 0).release().perform();
     }
 }

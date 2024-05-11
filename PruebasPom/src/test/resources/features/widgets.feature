@@ -39,3 +39,9 @@ Feature:
     Examples:
       | texto                     |
       | El texto esta en el campo |
+
+  @slider
+  Scenario: Mover posicion en slider
+    And se dirige a la seccion de slider
+    When desplaza el slider a otro punto 40 pixeles
+    Then deberia cambiar el numero del input a 62
