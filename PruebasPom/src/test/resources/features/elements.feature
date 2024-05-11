@@ -15,12 +15,6 @@ Feature: Elements DemoQA
       | nombre  | apellido   | correo              | edad | salario | departamento | correoActualizar     | correoEliminar      |
       | "jorge" | "de neiva" | "jorge@example.com" | 35   | 2000    | "CALIDAD"    | "cierra@example.com" | "alden@example.com" |
 
-  @nuevaPestaña
-  Scenario: abrir link nueva pestaña
-    Given el usuario esta en el apartado links de Elementos
-    When el usuario hace clic en los enlaces Home y HomewXVOz
-    Then se deberian redirigir al home de DemoQA correctamente
-
 
   @CheckBox
   Scenario: Interacción con casillas de verificación
@@ -34,5 +28,18 @@ Feature: Elements DemoQA
     When selecciona las opciones de radio
     Then debería ver un mensaje correspondiente al boton de radio seleccionado
 
+  @linkElement
+  @nuevaPestaña
+  Scenario: abrir link nueva pestaña
+    Given el usuario navega al apartado links de Elementos
+    When el usuario hace clic en los enlaces Home y HomewXVOz
+    Then se deberia estar en el apartado links de elementos luego de abrir la pestaña de los enlaces Home y HomewXVOz
+
+  @linkElement
+  @linkApi
+  Scenario: interaccion links api call
+    Given el usuario navega al apartado links de Elementos
+    When el usuario hace click en todas los link de api call
+    Then se deberia mostrar en pantalla un mensaje con la respuesta de la api
 
 

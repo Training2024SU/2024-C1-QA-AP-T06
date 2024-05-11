@@ -13,5 +13,13 @@ public class Constantes {
     public static final String MENSAJE_ESPERADO_PARENT_FRAME = "Parent frame";
     public static final String MENSAJE_ESPERADO_CHILD_FRAME ="Child Iframe";
 
+    public static final String CREATED = "201";
+    public static final String NO_CONTENT = "204";
+    public static final String MOVED = "301";
+    public static final String BAD_REQUEST = "400";
+    public static final String UNAUTHORIZED = "401";
+    public static final String FORBIDDEN = "403";
+    public static final String NOT_FOUND = "404";
+
 
 }
