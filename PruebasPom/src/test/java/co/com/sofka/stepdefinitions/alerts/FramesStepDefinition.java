@@ -50,9 +50,8 @@ public class FramesStepDefinition extends WebSetup {
             framesPage.switchToFrame2();
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            Assertions.fail();
-        } finally {
             quiteDrive();
+            Assertions.fail();
         }
     }
 
