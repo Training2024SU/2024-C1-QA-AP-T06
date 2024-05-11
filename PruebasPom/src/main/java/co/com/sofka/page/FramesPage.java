@@ -24,14 +24,14 @@ public class FramesPage extends FunctionsCommons {
     }
     public void switchToFrame1(){
         scrollTo(frame1);
-        driver.switchTo().frame(frame1);
+        switchToIframe(frame1);
     }
     public void switchToPaginaPrincipal(){
         driver.switchTo().defaultContent();
     }
     public void switchToFrame2(){
         scrollTo(frame2);
-        driver.switchTo().frame(frame2);
+        switchToIframe(frame2);
     }
     public String obtenerMensajeDeFrame(){
         waitToBeVisible(mensajeIframe);

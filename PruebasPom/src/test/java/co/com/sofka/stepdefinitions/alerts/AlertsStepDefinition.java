@@ -1,5 +1,6 @@
 package co.com.sofka.stepdefinitions.alerts;
 
+
 import co.com.sofka.page.AlertsPage;
 import co.com.sofka.setup.WebSetup;
 import io.cucumber.java.en.Given;
