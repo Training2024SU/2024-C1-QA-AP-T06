@@ -93,6 +93,8 @@ Feature: Elements DemoQA
     And el usuario selecciona un no puede ver una imagen valida
     Then deberia de mostrar su correspondiente alerta de imagen invalido
 
-
-
-
+  @DavidTearDown
+  Scenario: Propiedades dinamicas
+    When El usuario accede a la opción de propiedades dinámicas
+    And Espera a que las propiedades de los elementos cambien
+    Then debería ver los elementos actualizarse
