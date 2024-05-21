@@ -5,8 +5,12 @@ todos los flujos de automatización de la pagina DEMOQA
 
 Requisitos:
 
-Gestor de dependencias Gradle
-Test Runner de Cucumber
-Patron ScreenPlay
-Framework Serenity BDD
-Versión java 11 o superior
+1. Gestor de dependencias Gradle
+
+2. Test Runner de Cucumber
+
+3. Patron ScreenPlay
+
+4. Framework Serenity BDD
+
+5. Versión java 11 o superior
